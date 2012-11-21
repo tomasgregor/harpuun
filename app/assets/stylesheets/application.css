@@ -11,3 +11,11 @@
  *= require_self
  *= require_tree .
  */
+
+.form {
+	margin: 35px;
+}
+
+.greeting {
+	padding: 31px 15px 0px;
+}
