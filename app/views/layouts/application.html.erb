@@ -7,8 +7,37 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <ul class="nav">
 
-<%= yield %>
+	<li><%= link_to( image_tag("/assets/harpuunlogo.png", :width => "200"), root_url, ) %></li>
+
+        <li><a href="#"><%= link_to "How it Works ", how_it_works_url %></a></li>
+        <li><a href="#"><%= link_to "Our Team", our_team_url %></a></li>
+
+        <% if session["user_id"] %>
+			<li><a href="#"><%= link_to "Profile", user_url(session[:user_id]) %></a></li>
+			<li><a href="#"><%= link_to "Projects", projects_url %></a></li>
+        <% end %>
+
+        <% if session["user_id"] %>
+        	<li><p class="nav-unlinked">Hello, <%= User.find(session[:user_id]).first_name %>!</p></li>
+			<li><a href="#"><%= link_to "Sign Out", "/logout" %></a></li>
+        <% else %>
+         	<li><a href="#"><%= link_to "Sign In", "/login" %> </a></li>
+			<li><a href="#"><%= link_to "Sign Up", new_user_url %> </a></li>
+        		
+        <% end %>
+      </ul>
+    </div> 
+  </div>    
+
+  <% if flash[:notice] %>
+    <p><%= flash[:notice] %></p>
+  <% end %>
+
+  <%= yield %>
 
 </body>
 </html>
