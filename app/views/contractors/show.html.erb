@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>First name:</b>
+  <%= @contractor.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%= @contractor.last_name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @contractor.email %>
+</p>
+
+<p>
+  <b>Company:</b>
+  <%= @contractor.company %>
+</p>
+
+<p>
+  <b>Avatar url:</b>
+  <%= @contractor.avatar_url %>
+</p>
+
+<p>
+  <b>Password digest:</b>
+  <%= @contractor.password_digest %>
+</p>
+
+
+<%= link_to 'Edit', edit_contractor_path(@contractor) %> |
+<%= link_to 'Back', contractors_path %>
