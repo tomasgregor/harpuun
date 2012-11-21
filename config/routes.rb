@@ -6,7 +6,7 @@ Harpuun::Application.routes.draw do
   
   #  Routes for sessions
   get '/login' => 'sessions#new', :as => 'sign_in'
-  get '/logout' => 'sessions#destroy'
+  get '/logout' => 'sessions#destroy', :as => 'sign_out'
   post 'sessions/create' => 'sessions#create'
   
   # Routes for static pages
