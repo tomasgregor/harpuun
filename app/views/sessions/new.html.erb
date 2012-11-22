@@ -1,11 +1,9 @@
 <%= form_tag "/sessions/create" do %>
-<p class="form">
-  <%= label_tag :email, "Email Address:" %>
-  <%= text_field_tag :email %>
-  <%= label_tag :password, "Password:" %>
-  <%= password_field_tag :password %>
-  <%= submit_tag "Login"%>
-</p>  
-<p class="form">Not a member? <%= link_to "Click here to register", new_user_url %> 
-</p>
+	<p class="form">
+	  <%= label_tag :email, "Email:" %>
+	  <%= text_field_tag :email %>
+	  <%= label_tag :password, "Password:" %>
+	  <%= password_field_tag :password %>
+	  <%= submit_tag "Login"%>
+	</p>  
 <% end %>

@@ -44,6 +44,7 @@ class ContractorsController < ApplicationController
 
     respond_to do |format|
       if @contractor.save
+        session[:contractor_id] = @contractor.id
         format.html { redirect_to @contractor, notice: 'Contractor was successfully created.' }
         format.json { render json: @contractor, status: :created, location: @contractor }
       else
