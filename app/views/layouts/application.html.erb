@@ -19,12 +19,13 @@
 		<li> | admin links </li>
 		
 		<% if !contractor_logged_in? %>
-            <li><%= link_to 'Contractor Sign up', new_contractor_url %></li>
-            <li><%= link_to 'Sign in', signin_url %></li>
+            <li><%= link_to 'Sign up Contractor', new_contractor_url %></li>
+            <li><%= link_to 'Sign in Contractor', signin_contractor_url %></li>
          <% else %>
 			<li><%= link_to 'Contractor Profile', contractor_url(session[:contractor_id]) %></li>
             <li><%= link_to 'Sign out', signout_url %></li>
          <% end %>
+
 		<li><a href="#"><%= link_to "Contractors List", contractors_url %></a></li>
 		
       </ul>
