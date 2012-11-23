@@ -18,7 +18,7 @@ class ContractorsControllerTest < ActionController::TestCase
 
   test "should create contractor" do
     assert_difference('Contractor.count') do
-      post :create, contractor: { avatar_url: @contractor.avatar_url, company: @contractor.company, email: @contractor.email, first_name: @contractor.first_name, last_name: @contractor.last_name, password_digest: @contractor.password_digest }
+      post :create, contractor: { avatar: @contractor.avatar, company: @contractor.company, email: @contractor.email, first_name: @contractor.first_name, last_name: @contractor.last_name, password_digest: @contractor.password_digest }
     end
 
     assert_redirected_to contractor_path(assigns(:contractor))
@@ -35,7 +35,7 @@ class ContractorsControllerTest < ActionController::TestCase
   end
 
   test "should update contractor" do
-    put :update, id: @contractor, contractor: { avatar_url: @contractor.avatar_url, company: @contractor.company, email: @contractor.email, first_name: @contractor.first_name, last_name: @contractor.last_name, password_digest: @contractor.password_digest }
+    put :update, id: @contractor, contractor: { avatar: @contractor.avatar, company: @contractor.company, email: @contractor.email, first_name: @contractor.first_name, last_name: @contractor.last_name, password_digest: @contractor.password_digest }
     assert_redirected_to contractor_path(assigns(:contractor))
   end
 
