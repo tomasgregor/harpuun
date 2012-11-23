@@ -5,4 +5,6 @@ class Contractor < ActiveRecord::Base
   
   validates_uniqueness_of :email
   
+  mount_uploader :avatar_url, ImageUploader
+  
 end
