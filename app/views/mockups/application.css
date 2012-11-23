@@ -12,6 +12,12 @@
  *= require_tree .
  */
 
+ /* Harpuun colors:
+ Navy - #1B315E
+ Lt. Blue - #8EB5C6
+ Green - #3EB54A
+ */
+
 .form {
 	margin: 35px;
 }
