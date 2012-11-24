@@ -7,7 +7,6 @@
     <th>Email</th>
     <th>Company</th>
     <th>Avatar url</th>
-    <th>Password digest</th>
     <th></th>
     <th></th>
     <th></th>
@@ -19,8 +18,7 @@
     <td><%= contractor.last_name %></td>
     <td><%= contractor.email %></td>
     <td><%= contractor.company %></td>
-    <td><%= contractor.avatar %></td>
-    <td><%= contractor.password_digest %></td>
+    <td><%= image_tag contractor.avatar_url(:thumb).to_s %></td>
     <td><%= link_to 'Show', contractor %></td>
     <td><%= link_to 'Edit', edit_contractor_path(contractor) %></td>
     <td><%= link_to 'Destroy', contractor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
