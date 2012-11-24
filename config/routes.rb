@@ -1,5 +1,7 @@
 Harpuun::Application.routes.draw do
  
+  resources :starters
+
   resources :contractors
 
   root :to => 'static#home'
