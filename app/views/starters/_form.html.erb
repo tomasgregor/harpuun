@@ -24,44 +24,20 @@
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label :password_digest %><br />
-    <%= f.text_field :password_digest %>
+    <%= f.label :avatar, "Upload your picture" %><br />
+    <%= f.file_field :avatar %>
   </div>
   <div class="field">
-    <%= f.label :avatar %><br />
-    <%= f.text_field :avatar %>
+    <%= f.label :remote_avatar_url, "or paste picture's link" %><br />
+    <%= f.text_field :remote_avatar_url %>
   </div>
   <div class="field">
-    <%= f.label :skill_id1 %><br />
-    <%= f.number_field :skill_id1 %>
+    <%= f.label :password %><br />
+    <%= f.password_field :password %>
   </div>
   <div class="field">
-    <%= f.label :skill_id2 %><br />
-    <%= f.number_field :skill_id2 %>
-  </div>
-  <div class="field">
-    <%= f.label :skill_id3 %><br />
-    <%= f.number_field :skill_id3 %>
-  </div>
-  <div class="field">
-    <%= f.label :year %><br />
-    <%= f.number_field :year %>
-  </div>
-  <div class="field">
-    <%= f.label :quarter %><br />
-    <%= f.number_field :quarter %>
-  </div>
-  <div class="field">
-    <%= f.label :class_id1 %><br />
-    <%= f.number_field :class_id1 %>
-  </div>
-  <div class="field">
-    <%= f.label :class_id2 %><br />
-    <%= f.number_field :class_id2 %>
-  </div>
-  <div class="field">
-    <%= f.label :class_id3 %><br />
-    <%= f.number_field :class_id3 %>
+    <%= f.label :password_confirmation %><br />
+    <%= f.password_field :password_confirmation %>
   </div>
   <div class="actions">
     <%= f.submit %>
