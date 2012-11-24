@@ -16,13 +16,8 @@
 </p>
 
 <p>
-  <b>Password digest:</b>
-  <%= @starter.password_digest %>
-</p>
-
-<p>
   <b>Avatar:</b>
-  <%= @starter.avatar %>
+  <%= image_tag @starter.avatar_url(:thumb).to_s %>
 </p>
 
 <p>
