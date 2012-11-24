@@ -1,5 +1,7 @@
 Harpuun::Application.routes.draw do
  
+  resources :projects
+
   resources :skills
 
   resources :starters
