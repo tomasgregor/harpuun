@@ -1,4 +1,4 @@
-<%= form_for(@starter) do |f| %>
+<%= form_for @starter, :html => {:multipart => true} do |f| %>
   <% if @starter.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@starter.errors.count, "error") %> prohibited this starter from being saved:</h2>
