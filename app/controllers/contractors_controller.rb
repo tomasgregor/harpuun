@@ -1,10 +1,13 @@
 class ContractorsController < ApplicationController
 
-  # before_filter :require_contractor, :except => [:index, :show]
-  # 
-  # def require_contractor
-  #   if @contractor && @contractor.authenticate()
-  # end
+  before_filter :require_contractor, :except => [:index, :new, :create]
+  
+  def require_contractor
+    if current_contractor.id != params[:id].to_i
+      redirect_to root_url, :notice => "You're not authorized to see this page"
+      return
+    end
+  end
 
   # GET /contractors
   # GET /contractors.json
