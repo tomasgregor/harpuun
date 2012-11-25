@@ -1,6 +1,22 @@
 class ProjectsController < ApplicationController
-  # GET /projects
-  # GET /projects.json
+  
+  before_filter :require_contractor, :except => :index
+  
+  def require_contractor
+    if current_contractor.nil?
+      redirect_to root_url, :notice => "You're not authorized to see this page"
+      return
+    else
+      if !Project.find(params[:id]).nil?
+        project = Project.find(params[:id])
+          if current_contractor.id != project.contractor_id
+            redirect_to root_url, :notice => "You're not authorized to see this page"
+            return
+          end
+      end
+    end
+  end
+  
   def index
     @projects = Project.all
 
@@ -14,7 +30,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     @project = Project.find(params[:id])
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @project }
