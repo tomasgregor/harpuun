@@ -1,4 +1,11 @@
 class ContractorsController < ApplicationController
+
+  # before_filter :require_contractor, :except => [:index, :show]
+  # 
+  # def require_contractor
+  #   if @contractor && @contractor.authenticate()
+  # end
+
   # GET /contractors
   # GET /contractors.json
   def index

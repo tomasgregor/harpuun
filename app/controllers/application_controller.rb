@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_filter :determine_current_contractor
 
   def determine_current_contractor
-    @contractor ||= Contractor.find_by_id(session[:user_id])
+    @contractor ||= Contractor.find_by_id(session[:contractor_id])
   end
   
 end
