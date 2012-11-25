@@ -1,0 +1,48 @@
+<p>
+  <b>Name:</b>
+  <%= @project.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @project.description %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= @project.url %>
+</p>
+
+<p>
+  <b>Reward:</b>
+  <%= @project.reward %>
+</p>
+
+<p>
+  <b>Deadline:</b>
+  <%= @project.deadline %>
+</p>
+
+<p>
+  <b>Contractor:</b>
+  <%= @project.contractor_id %>
+</p>
+
+<p>
+  <b>Skill id1:</b>
+  <%= @project.skill_id1 %>
+</p>
+
+<p>
+  <b>Skill id2:</b>
+  <%= @project.skill_id2 %>
+</p>
+
+<p>
+  <b>Skill id3:</b>
+  <%= @project.skill_id3 %>
+</p>
+
+
+<%= link_to 'Edit', edit_project_path(@project) %> |
+<%= link_to 'Back', projects_path %>
