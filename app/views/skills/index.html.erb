@@ -2,7 +2,8 @@
 
 <table>
   <tr>
-    <th>Name</th>
+    <th>Id</th>
+	<th>Name</th>
     <th></th>
     <th></th>
     <th></th>
@@ -10,6 +11,7 @@
 
 <% @skills.each do |skill| %>
   <tr>
+    <td><%= skill.id %></td>
     <td><%= skill.name %></td>
     <td><%= link_to 'Show', skill %></td>
     <td><%= link_to 'Edit', edit_skill_path(skill) %></td>

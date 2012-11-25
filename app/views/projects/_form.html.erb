@@ -31,23 +31,14 @@
     <%= f.label :deadline %><br />
     <%= f.text_field :deadline %>
   </div>
-  <div class="field">
-    <%= f.label :contractor_id %><br />
-    <%= f.number_field :contractor_id %>
-  </div>
-  <div class="field">
-    <%= f.label :skill_id1 %><br />
-    <%= f.number_field :skill_id1 %>
-  </div>
-  <div class="field">
-    <%= f.label :skill_id2 %><br />
-    <%= f.number_field :skill_id2 %>
-  </div>
-  <div class="field">
-    <%= f.label :skill_id3 %><br />
-    <%= f.number_field :skill_id3 %>
-  </div>
-  <div class="actions">
+  
+  	<% 3.times do |n| %>
+	  <div class="field">
+	    <%= f.label "skill_id#{n+1}", "Skill #{n+1}" %><br />
+	    <%= f.collection_select "skill_id#{n+1}", Skill.all, :id, :name, {:prompt => 'Select Skill...'} %>
+	  </div>
+	<% end  %>
+
     <%= f.submit %>
   </div>
 <% end %>
