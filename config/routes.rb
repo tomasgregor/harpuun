@@ -15,6 +15,10 @@ Harpuun::Application.routes.draw do
   get '/contractor_signout' => 'contractor_sessions#destroy', :as => 'signout_contractor'
   post '/contractor_session' => 'contractor_sessions#create'
   
+  get '/starter_signin' => 'starter_sessions#new', :as => 'signin_starter'
+  get '/starter_signout' => 'starter_sessions#destroy', :as => 'signout_starter'
+  post '/starter_session' => 'starter_sessions#create'
+  
   # Routes for static pages
   get '/home' => 'static#home'
   get '/how_it_works' => 'static#how_it_works'

@@ -1,6 +1,16 @@
 class StartersController < ApplicationController
   # GET /starters
   # GET /starters.json
+  
+  before_filter :require_starter, :except => [:new, :create]
+  
+  def require_starter
+    if current_starter.nil? || current_starter.id != params[:id].to_i
+      redirect_to root_url, :notice => "You're not authorized to see this page"
+      return
+    end   
+  end
+  
   def index
     @starters = Starter.all
 
