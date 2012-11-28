@@ -1,13 +1,13 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
   
-  before_filter :current_contractor
+  before_filter :current_client
 
-  def current_contractor
-    @contractor ||= Contractor.find_by_id(session[:contractor_id])
+  def current_client
+    @client ||= Client.find_by_id(session[:client_id])
   end
   
-  before_filter :current_contractor
+  before_filter :current_client
 
   def current_starter
     @starter ||= Starter.find_by_id(session[:starter_id])

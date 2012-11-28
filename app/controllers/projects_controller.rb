@@ -1,15 +1,15 @@
 class ProjectsController < ApplicationController
   
-  before_filter :require_contractor, :except => :index
+  before_filter :require_client, :except => :index
   
-  def require_contractor
-    if current_contractor.nil?
+  def require_client
+    if current_client.nil?
       redirect_to root_url, :notice => "You're not authorized to see this page"
       return
     else
       if Project.find_by_id(params[:id]).present?
         project = Project.find(params[:id])
-          if current_contractor.id != project.contractor_id
+          if current_client.id != project.client_id
             redirect_to root_url, :notice => "You're not authorized to see this page"
             return
           end
@@ -18,7 +18,7 @@ class ProjectsController < ApplicationController
   end
   
   def index
-    # later add db filter .where(contractor_id=current_contractor.id)
+    # later add db filter .where(client_id=current_client.id)
     @projects = Project.all
 
     respond_to do |format|
@@ -58,7 +58,7 @@ class ProjectsController < ApplicationController
   # POST /projects.json
   def create
     @project = Project.new(params[:project])
-    @project.contractor_id = current_contractor.id
+    @project.client_id = current_client.id
 
     respond_to do |format|
       if @project.save

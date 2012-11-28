@@ -18,7 +18,7 @@ class ProjectsControllerTest < ActionController::TestCase
 
   test "should create project" do
     assert_difference('Project.count') do
-      post :create, project: { contractor_id: @project.contractor_id, deadline: @project.deadline, description: @project.description, name: @project.name, reward: @project.reward, skill_id1: @project.skill_id1, skill_id2: @project.skill_id2, skill_id3: @project.skill_id3, url: @project.url }
+      post :create, project: { client_id: @project.client_id, deadline: @project.deadline, description: @project.description, name: @project.name, reward: @project.reward, skill_id1: @project.skill_id1, skill_id2: @project.skill_id2, skill_id3: @project.skill_id3, url: @project.url }
     end
 
     assert_redirected_to project_path(assigns(:project))
@@ -35,7 +35,7 @@ class ProjectsControllerTest < ActionController::TestCase
   end
 
   test "should update project" do
-    put :update, id: @project, project: { contractor_id: @project.contractor_id, deadline: @project.deadline, description: @project.description, name: @project.name, reward: @project.reward, skill_id1: @project.skill_id1, skill_id2: @project.skill_id2, skill_id3: @project.skill_id3, url: @project.url }
+    put :update, id: @project, project: { client_id: @project.client_id, deadline: @project.deadline, description: @project.description, name: @project.name, reward: @project.reward, skill_id1: @project.skill_id1, skill_id2: @project.skill_id2, skill_id3: @project.skill_id3, url: @project.url }
     assert_redirected_to project_path(assigns(:project))
   end
 

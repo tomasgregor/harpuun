@@ -1,14 +1,14 @@
 require 'test_helper'
 
-class ContractorsControllerTest < ActionController::TestCase
+class ClientsControllerTest < ActionController::TestCase
   setup do
-    @contractor = contractors(:one)
+    @client = clients(:one)
   end
 
   test "should get index" do
     get :index
     assert_response :success
-    assert_not_nil assigns(:contractors)
+    assert_not_nil assigns(:clients)
   end
 
   test "should get new" do
@@ -16,34 +16,34 @@ class ContractorsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create contractor" do
-    assert_difference('Contractor.count') do
-      post :create, contractor: { avatar: @contractor.avatar, company: @contractor.company, email: @contractor.email, first_name: @contractor.first_name, last_name: @contractor.last_name, password_digest: @contractor.password_digest }
+  test "should create client" do
+    assert_difference('Client.count') do
+      post :create, client: { avatar: @client.avatar, company: @client.company, email: @client.email, first_name: @client.first_name, last_name: @client.last_name, password_digest: @client.password_digest }
     end
 
-    assert_redirected_to contractor_path(assigns(:contractor))
+    assert_redirected_to client_path(assigns(:client))
   end
 
-  test "should show contractor" do
-    get :show, id: @contractor
+  test "should show client" do
+    get :show, id: @client
     assert_response :success
   end
 
   test "should get edit" do
-    get :edit, id: @contractor
+    get :edit, id: @client
     assert_response :success
   end
 
-  test "should update contractor" do
-    put :update, id: @contractor, contractor: { avatar: @contractor.avatar, company: @contractor.company, email: @contractor.email, first_name: @contractor.first_name, last_name: @contractor.last_name, password_digest: @contractor.password_digest }
-    assert_redirected_to contractor_path(assigns(:contractor))
+  test "should update client" do
+    put :update, id: @client, client: { avatar: @client.avatar, company: @client.company, email: @client.email, first_name: @client.first_name, last_name: @client.last_name, password_digest: @client.password_digest }
+    assert_redirected_to client_path(assigns(:client))
   end
 
-  test "should destroy contractor" do
-    assert_difference('Contractor.count', -1) do
-      delete :destroy, id: @contractor
+  test "should destroy client" do
+    assert_difference('Client.count', -1) do
+      delete :destroy, id: @client
     end
 
-    assert_redirected_to contractors_path
+    assert_redirected_to clients_path
   end
 end
