@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  description: MyText
+  url: MyString
+  reward: MyString
+  deadline: MyString
+  client_id: 1
+  skill_id1: 1
+  skill_id2: 1
+  skill_id3: 1
+
+two:
+  name: MyString
+  description: MyText
+  url: MyString
+  reward: MyString
+  deadline: MyString
+  client_id: 1
+  skill_id1: 1
+  skill_id2: 1
+  skill_id3: 1

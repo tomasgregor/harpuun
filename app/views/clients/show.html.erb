@@ -1,0 +1,28 @@
+<p>
+  <b>First name:</b>
+  <%= @client.first_name %>
+</p>
+
+<p>
+  <b>Last name:</b>
+  <%= @client.last_name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @client.email %>
+</p>
+
+<p>
+  <b>Company:</b>
+  <%= @client.company %>
+</p>
+
+<p>
+  <b>Avatar:</b>
+  <%= image_tag @client.avatar_url(:thumb).to_s %>
+</p>
+
+
+<%= link_to 'Edit', edit_client_path(@client) %> |
+<%= link_to 'Back', clients_path %>

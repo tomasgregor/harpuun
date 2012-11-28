@@ -1,13 +1,23 @@
 Harpuun::Application.routes.draw do
  
-  resources :contractors
+  resources :projects
+
+  resources :skills
+
+  resources :starters
+
+  resources :clients
 
   root :to => 'static#home'
   
   #  Routes for sessions
-  get '/signin' => 'sessions#new_contractor', :as => 'signin_contractor'
-  get '/signout' => 'sessions#destroy', :as => 'signout'
-  post '/sessions/create_contractor' => 'sessions#create_contractor'
+  get '/client_signin' => 'client_sessions#new', :as => 'signin_client'
+  get '/client_signout' => 'client_sessions#destroy', :as => 'signout_client'
+  post '/client_session' => 'client_sessions#create'
+  
+  get '/starter_signin' => 'starter_sessions#new', :as => 'signin_starter'
+  get '/starter_signout' => 'starter_sessions#destroy', :as => 'signout_starter'
+  post '/starter_session' => 'starter_sessions#create'
   
   # Routes for static pages
   get '/home' => 'static#home'
@@ -15,6 +25,6 @@ Harpuun::Application.routes.draw do
   get '/our_team' => 'static#our_team'
   
   # Routes for mockups
-  get "/mockups/contractor_signup" => 'mockups#contractor_signup'
+  get "/mockups/client_signup" => 'mockups#client_signup'
  
 end

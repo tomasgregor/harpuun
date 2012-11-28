@@ -11,15 +11,53 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121121234338) do
+ActiveRecord::Schema.define(:version => 20121128023102) do
 
-  create_table "contractors", :force => true do |t|
+  create_table "clients", :force => true do |t|
     t.string   "first_name"
     t.string   "last_name"
     t.string   "email"
     t.string   "company"
-    t.string   "avatar_url"
+    t.string   "avatar"
     t.string   "password_digest"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  create_table "projects", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "url"
+    t.string   "reward"
+    t.string   "deadline"
+    t.integer  "client_id"
+    t.integer  "skill_id1"
+    t.integer  "skill_id2"
+    t.integer  "skill_id3"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  create_table "skills", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "starters", :force => true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.string   "avatar"
+    t.integer  "skill_id1"
+    t.integer  "skill_id2"
+    t.integer  "skill_id3"
+    t.integer  "year"
+    t.integer  "quarter"
+    t.integer  "class_id1"
+    t.integer  "class_id2"
+    t.integer  "class_id3"
     t.datetime "created_at",      :null => false
     t.datetime "updated_at",      :null => false
   end

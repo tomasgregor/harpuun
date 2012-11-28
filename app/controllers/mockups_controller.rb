@@ -1,7 +1,7 @@
 class MockupsController < ApplicationController
   
     
-    def contractor_signup
+    def client_signup
     end
     
     
