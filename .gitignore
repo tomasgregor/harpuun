@@ -16,3 +16,8 @@
 
 # Ignore Heroku Environment
 /config/initializers/aws_credentials.rb
+
+# Ignore Railroady generated files
+/doc/*.svg
+
+
