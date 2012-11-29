@@ -9,7 +9,6 @@ class ClientsController < ApplicationController
       redirect_to root_url, :notice => "You're not authorized to see this page"
       return
     end
-   
   end
 
   # GET /clients

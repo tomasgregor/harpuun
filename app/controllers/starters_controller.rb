@@ -2,7 +2,7 @@ class StartersController < ApplicationController
   # GET /starters
   # GET /starters.json
   
-  before_filter :require_starter, :except => [:new, :create]
+  before_filter :require_starter, :except => [ :index, :new, :create]
   
   def require_starter
     if current_starter.nil? || current_starter.id != params[:id].to_i

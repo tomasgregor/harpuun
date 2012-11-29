@@ -1,13 +1,15 @@
 Harpuun::Application.routes.draw do
- 
-  resources :projects
 
   resources :skills
 
   resources :starters
 
-  resources :clients
-
+  resources :clients do
+    resources :projects
+  end
+  
+  
+  
   root :to => 'static#home'
   
   #  Routes for sessions
