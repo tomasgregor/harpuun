@@ -20,7 +20,11 @@
             <li><%= link_to 'Sign up Client', new_client_url %></li>
             <li><%= link_to 'Sign in Client', signin_client_url %></li>
          <% else %>
-			<li><%= link_to "Client Projects List", client_projects_url(@client) %></li>
+			<% if @client.projects.any? %>
+				<li><%= link_to "Client Projects List", client_projects_url(@client) %></li>
+			<% else %>
+				<li><%= link_to "Add New Project", new_client_project_url(@client) %></li>
+			<% end  %>
 			<li><%= link_to 'Client Profile', client_url(@client) %></li>
             <li><%= link_to 'Sign out Client', signout_client_url %></li>
          <% end %>
