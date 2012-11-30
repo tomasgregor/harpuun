@@ -7,7 +7,11 @@ class ClientSessionsController < ApplicationController
     @client = Client.find_by_email(params[:email])
       if @client && @client.authenticate(params[:password])
         session[:client_id] = @client.id
-        redirect_to client_url(session[:client_id]), notice: 'Catches are ready for your Harpuun!'
+        if @client.projects.any?
+          redirect_to client_projects_url(@client)
+        else
+          redirect_to new_client_project_url(@client)
+        end
       else
         flash[:notice] = "Invalid email address or password"
         render 'new'
