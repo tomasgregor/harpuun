@@ -19,7 +19,7 @@ class Project < ActiveRecord::Base
   end
   
   # offer_project_to_starter
-  # checks beofre very Project save action (create or update) whether offered_to is empty. if yes, tries to assign an eligible Starter Id
+  # checks beofre every Project save action (create or update) whether offered_to is empty. if yes, tries to assign an eligible Starter Id
   # finds Starters without offered project
   # randomly picks 1 eligible Starter
   # assignes his Id to Project offered_to column
