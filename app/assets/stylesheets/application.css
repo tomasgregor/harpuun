@@ -8,14 +8,34 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *= require reset
  *= require_self
- *= require_tree .
+ *= require bootstrap
+ *= require bootstrap-responsive
  */
 
-.form {
-	margin: 35px;
+
+.indented{
+	padding-left: 4%;
+	padding-right: 4%;
 }
 
 .greeting {
 	padding: 31px 15px 0px;
+}
+
+/*.wrapper {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -.25em;
+}*/
+
+.footstick {
+    color: white;
+    background: #1B315E;
+    height: .25em;
+    padding: 5px 0 20px 0;
+    border-top: 1px solid #3EB54A;
+    text-align: center;
 }

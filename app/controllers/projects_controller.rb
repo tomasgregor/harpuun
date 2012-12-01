@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   
-  before_filter :require_client
+  before_filter :require_client, :except => :index_starter
   
   def require_client
     if current_client.nil? || current_client.id != params[:client_id].to_i
@@ -9,23 +9,7 @@ class ProjectsController < ApplicationController
     end
   end
   
-  # def require_client
-  #   if current_client.nil?
-  #     redirect_to root_url, :notice => "You're not authorized to see this page"
-  #     return
-  #   else
-  #     if Project.find_by_id(params[:id]).present?
-  #       project = Project.find(params[:id])
-  #         if current_client.id != project.client_id
-  #           redirect_to root_url, :notice => "You're not authorized to see this page"
-  #           return
-  #         end
-  #     end
-  #   end
-  # end
-  
   def index
-    # later add db filter .where(client_id=current_client.id)
     @client = current_client
     @projects = @client.projects
 
@@ -35,6 +19,19 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def index_starter
+    @starter = current_starter
+    @offered_project = Project.where(:offered_to => @starter.id)
+    @projects = Project.where(:accepted_by => @starter.id)
+    
+    respond_to do |format|
+      format.html # starter.html.erb
+      format.json { render json: @projects }
+    end
+  end
+  
+  
+  
   # GET /projects/1
   # GET /projects/1.json
   def show
@@ -111,4 +108,5 @@ class ProjectsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
 end
