@@ -1,0 +1,36 @@
+<h1>Listing projects</h1>
+
+
+<% else  %>
+	<h2>You haven't been offered a project yet</h2>
+<% end %>
+
+<% if @projects.any?  %>
+	<table>
+	  <tr>
+	    <th>Name</th>
+	    <th>Description</th>
+	    <th>Url</th>
+	    <th>Reward</th>
+	    <th>Deadline</th>
+	    <th>Client</th>
+	    <th>Skill id1</th>
+	    <th>Skill id2</th>
+	    <th>Skill id3</th>
+	  </tr>
+
+	<% @projects.each do |project| %>
+	  <tr>
+	    <td><%= project.name %></td>
+	    <td><%= project.description %></td>
+	    <td><%= project.url %></td>
+	    <td><%= project.reward %></td>
+	    <td><%= project.deadline %></td>
+	    <td><%= project.client_id %></td>
+	    <td><%= project.skill_id1 %></td>
+	    <td><%= project.skill_id2 %></td>
+	    <td><%= project.skill_id3 %></td>
+	  </tr>
+	<% end %>
+	</table>
+<% end %>

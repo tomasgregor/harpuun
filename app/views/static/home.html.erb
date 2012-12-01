@@ -17,18 +17,16 @@
 			<h3>Are you a Client?</h3>
 			<p>Flexitarian iphone consectetur, cupidatat retro sed aliquip farm-to-table direct trade brunch echo park lo-fi cillum. Blog adipisicing brunch VHS, aute consectetur fap occupy. Voluptate excepteur 3 wolf moon officia. In direct trade beard reprehenderit etsy placeat.
 			</p>
-		  	<p><button class="btn btn-large btn-block btn-primary" type="button">
-		      Client Sign-up
-		  	</button></p>
+		  	<p>
+			<%= button_to 'Sign up Client', new_client_url, :method => "get", :class => "btn btn-large btn-block btn-primary" %>
+			</p>
 		</div>
 		<div class="span6">
 			<img class="img-rounded" src="/assets/coder.jpg" alt="Coder">
 			<h3>Are you a Starter?</h3>
 			<p>Flexitarian iphone consectetur, cupidatat retro sed aliquip farm-to-table direct trade brunch echo park lo-fi cillum. Blog adipisicing brunch VHS, aute consectetur fap occupy. Voluptate excepteur 3 wolf moon officia. In direct trade beard reprehenderit etsy placeat.
 			</p>
-			<p><button class="btn btn-large btn-block btn-primary" type="button">
-		      Starter Sign-up
-		    </button></p>
+			<p><%= button_to 'Sign up Starter', new_starter_url, :method => "get", :class => "btn btn-large btn-block btn-primary" %></p>
 		</div>
 	</div>
 	<div class="hero-unit indented">
