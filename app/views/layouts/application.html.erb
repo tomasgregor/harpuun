@@ -9,39 +9,39 @@
   <link href="assets/stylesheets/bootstrap-responsive.css" rel="stylesheet">
 </head>
 <body>
+  <div class="container">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <ul class="nav">
 
-  <div class="navbar">
-    <div class="navbar-inner">
-      <ul class="nav">
+  	      <li><%= link_to( image_tag("/assets/harpuunlogo.png", :width => "200"), root_url, ) %></li>
 
-	      <li><%= link_to( image_tag("/assets/harpuunlogo.png", :width => "200"), root_url, ) %></li>
+  		<% if !client_logged_in? %>
+              <li><%= link_to 'Sign up Client', new_client_url %></li>
+              <li><%= link_to 'Sign in Client', signin_client_url %></li>
+           <% else %>
+  			<% if @client.projects.any? %>
+  				<li><%= link_to "Client Projects List", client_projects_url(@client) %></li>
+  			<% else %>
+  				<li><%= link_to "Add New Project", new_client_project_url(@client) %></li>
+  			<% end  %>
+  			<li><%= link_to 'Client Profile', client_url(@client) %></li>
+              <li><%= link_to 'Sign out Client', signout_client_url %></li>
+           <% end %>
 
-		<% if !client_logged_in? %>
-            <li><%= link_to 'Sign up Client', new_client_url %></li>
-            <li><%= link_to 'Sign in Client', signin_client_url %></li>
-         <% else %>
-			<% if @client.projects.any? %>
-				<li><%= link_to "Client Projects List", client_projects_url(@client) %></li>
-			<% else %>
-				<li><%= link_to "Add New Project", new_client_project_url(@client) %></li>
-			<% end  %>
-			<li><%= link_to 'Client Profile', client_url(@client) %></li>
-            <li><%= link_to 'Sign out Client', signout_client_url %></li>
-         <% end %>
+  		<li><a href="#"><%= link_to "How it Works ", how_it_works_url %></a></li>
+          <li><a href="#"><%= link_to "Our Team", our_team_url %></a></li>
 
-		<li><a href="#"><%= link_to "How it Works ", how_it_works_url %></a></li>
-        <li><a href="#"><%= link_to "Our Team", our_team_url %></a></li>
+  		<li> | admin links </li>
+  		
+  		<li><a href="#"><%= link_to "Clients List", clients_url %></a></li>
+  		<li><a href="#"><%= link_to "Starters List", starters_url %></a></li>
+  		<li><a href="#"><%= link_to "Skills List", skills_url %></a></li>
 
-		<li> | admin links </li>
-		
-		<li><a href="#"><%= link_to "Clients List", clients_url %></a></li>
-		<li><a href="#"><%= link_to "Starters List", starters_url %></a></li>
-		<li><a href="#"><%= link_to "Skills List", skills_url %></a></li>
-
-      </ul>
-    </div> 
-  </div>    
-
+        </ul>
+      </div> 
+    </div>    
+  </div>
 <!--   <div class="navbar">
     <div class="navbar-inner">
       <div class="container"> 

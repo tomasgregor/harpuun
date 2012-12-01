@@ -636,6 +636,7 @@ p {
 
 small {
   font-size: 85%;
+  line-height: 10px;
 }
 
 strong {
@@ -692,7 +693,7 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 10px 0;
+  margin: 10px 0 0 0;
   font-family: inherit;
   font-weight: bold;
   line-height: 20px;
@@ -5885,7 +5886,7 @@ a.badge:hover {
 }
 
 .hero-unit {
-  padding: 60px;
+  padding: 30px;
   margin-bottom: 30px;
   font-size: 18px;
   font-weight: 200;
