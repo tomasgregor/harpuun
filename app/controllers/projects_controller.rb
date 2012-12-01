@@ -35,6 +35,14 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def index_starter
+    @starter = current_starter
+    @offered_project = Project.where(:offered_to = @starter.id)
+    @projects = Project.where(:accepted_by = @starter.id)
+  end
+  
+  
+  
   # GET /projects/1
   # GET /projects/1.json
   def show

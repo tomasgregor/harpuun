@@ -1,16 +1,18 @@
 Harpuun::Application.routes.draw do
 
-  resources :skills
-
-  resources :starters
-
+  root :to => 'static#home'  
+  
   resources :clients do
     resources :projects
   end
   
+  get '/starters/:id/projects' => 'projects#index_starter', :as => 'starter_projects'
   
+  resources :starters
   
-  root :to => 'static#home'
+  resources :skills
+  
+
   
   #  Routes for sessions
   get '/client_signin' => 'client_sessions#new', :as => 'signin_client'
