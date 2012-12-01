@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   
-  before_filter :require_client, :except => index_starter
+  before_filter :require_client, :except => :index_starter
   
   def require_client
     if current_client.nil? || current_client.id != params[:client_id].to_i
@@ -10,7 +10,6 @@ class ProjectsController < ApplicationController
   end
   
   def index
-    # later add db filter .where(client_id=current_client.id)
     @client = current_client
     @projects = @client.projects
 
@@ -22,8 +21,13 @@ class ProjectsController < ApplicationController
 
   def index_starter
     @starter = current_starter
-    @offered_project = Project.find_all_by_offered_to(@starter.id)
+    @offered_project = Project.where(:offered_to => @starter.id)
     @projects = Project.where(:accepted_by => @starter.id)
+    
+    respond_to do |format|
+      format.html # starter.html.erb
+      format.json { render json: @projects }
+    end
   end
   
   
