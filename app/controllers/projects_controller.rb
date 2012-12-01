@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   
-  before_filter :require_client, :except => index_starter
+  before_filter :require_client, :except => :index_starter
   
   def require_client
     if current_client.nil? || current_client.id != params[:client_id].to_i

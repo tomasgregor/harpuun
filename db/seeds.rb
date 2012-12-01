@@ -10,3 +10,11 @@ end
 puts "#{Skill.count} skills are now in the database."
 
 
+projects = [ {:client_id => '1', :description => 'First test.', :name => 'Testing'} ]
+projects.each do |project|
+	p = Project.new
+	p.client_id = project[:client_id]
+	p.description = project[:description]
+	p.name = project[:name]
+	p.save
+end
