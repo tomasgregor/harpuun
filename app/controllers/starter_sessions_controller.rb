@@ -7,7 +7,7 @@ class StarterSessionsController < ApplicationController
     @starter = Starter.find_by_email(params[:email])
       if @starter && @starter.authenticate(params[:password])
         session[:starter_id] = @starter.id
-        redirect_to starter_url(session[:starter_id]), notice: 'You are logged in!'
+        redirect_to starter_projects_url(@starter), notice: 'You are logged in!'
       else
         flash[:notice] = "Invalid email address or password"
         render 'new'

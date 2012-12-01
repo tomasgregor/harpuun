@@ -5,12 +5,24 @@ class Project < ActiveRecord::Base
   
   before_save :offer_project_to_starter
   
+  
   def offer_project_to_starter
-    not_eligible_starters_ids = Project.select(:offered_to).map(&:offered_to)
-    all_starters_ids = Starter.select(:id).map(&:id)
-    eligible_starters_ids = all_starters_ids - not_eligible_starters_ids
-    offered_starter_id = eligible_starters_ids.shuffle[0]
-    self.offered_to = offered_starter_id
+    if !self.offered_to
+      not_eligible_starters_ids = Project.select(:offered_to).map(&:offered_to)
+      all_starters_ids = Starter.select(:id).map(&:id)
+      eligible_starters_ids = all_starters_ids - not_eligible_starters_ids
+      if eligible_starters_ids.any?
+        offered_starter_id = eligible_starters_ids.shuffle[0]
+        self.offered_to = offered_starter_id
+      end
+    end
   end
+  
+  # offer_project_to_starter
+  # checks beofre very Project save action (create or update) whether offered_to is empty. if yes, tries to assign an eligible Starter Id
+  # finds Starters without offered project
+  # randomly picks 1 eligible Starter
+  # assignes his Id to Project offered_to column
+  
   
 end
