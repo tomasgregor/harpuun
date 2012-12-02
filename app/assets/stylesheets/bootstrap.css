@@ -5881,6 +5881,10 @@ a.badge:hover {
   color: inherit;
 }
 
+.hero-unit .tagline_blue {
+    color: #1C2C60;
+}
+
 .hero-unit li {
   line-height: 30px;
 }

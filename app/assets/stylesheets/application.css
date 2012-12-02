@@ -45,6 +45,10 @@
 	font-weight: 100;
 }
 
+.tagline_blue {
+    color: #1C2C60;
+}
+
 /*.wrapper {
 	min-height: 100%;
 	height: auto !important;
