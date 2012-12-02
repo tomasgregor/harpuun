@@ -725,8 +725,6 @@ h4 small {
   border-bottom: 1px solid #eeeeee;
 }
 
-.inset { text-shadow: #fff 1px 0px 1px, #608191 0 -1px 0;}
-
 ul,
 ol {
   padding: 0;
@@ -951,12 +949,7 @@ legend small {
   color: #999999;
 }
 
-label  {
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 20px;
-}
-
+label,
 input,
 button,
 select,
@@ -975,7 +968,7 @@ textarea {
 
 label {
   display: block;
-  margin-bottom: 4px;
+  margin-bottom: 5px;
 }
 
 select,
@@ -998,7 +991,7 @@ input[type="color"],
   display: inline-block;
   height: 20px;
   padding: 4px 6px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   font-size: 14px;
   line-height: 20px;
   color: #555555;
