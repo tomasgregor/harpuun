@@ -939,7 +939,7 @@ legend {
   margin-bottom: 20px;
   font-size: 21px;
   line-height: 40px;
-  color: #333333;
+  color: #1B315E;
   border: 0;
   border-bottom: 1px solid #e5e5e5;
 }
@@ -5868,7 +5868,9 @@ a.badge:hover {
   color: inherit;
 }
 
-.hero-unit h2 {
+.hero-unit h2, .hero-unit h3, 
+.hero-unit h4, .hero-unit h5 
+.hero-unit h6 {
   color: inherit;
 }
 
