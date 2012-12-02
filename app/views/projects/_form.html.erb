@@ -1,7 +1,7 @@
 <%= form_for [@client, @project] do |f| %>
   <% if @project.errors.any? %>
     <div id="error_explanation">
-      <h3><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h3>
+      <h4><%= pluralize(@project.errors.count, "error") %> prohibited this project from being saved:</h4>
       <ul>
 	      <% @project.errors.full_messages.each do |msg| %>
 	        <li><%= msg %></li>
@@ -11,33 +11,33 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :description %><br />
+    <%= f.label :description %>
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :url %><br />
+    <%= f.label :url %>
     <%= f.text_field :url %>
   </div>
   <div class="field">
-    <%= f.label :reward %><br />
+    <%= f.label :reward %>
     <%= f.text_field :reward %>
   </div>
   <div class="field">
-    <%= f.label :deadline %><br />
+    <%= f.label :deadline %>
     <%= f.text_field :deadline %>
   </div>
   
   	<% 3.times do |n| %>
 	  <div class="field">
-	    <%= f.label "skill_id#{n+1}", "Skill #{n+1}" %><br />
+	    <%= f.label "skill_id#{n+1}", "Skill #{n+1}" %>
 	    <%= f.collection_select "skill_id#{n+1}", Skill.all, :id, :name, {:prompt => 'Select Skill...'} %>
 	  </div>
 	<% end  %>
 
-    <%= f.submit %>
+    <%= f.submit :class => "btn btn-large btn-primary" %>
   </div>
 <% end %>
