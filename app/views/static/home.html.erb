@@ -6,7 +6,7 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
-	<body>
+<body>
 	<div class="indented hero-unit">
 		<div class="indented row">
 			<%= image_tag "whale_flag.png", :class => "home-whale", :alt => "harpuun whale" %>
@@ -16,29 +16,17 @@
 	</div>
 
 	<div class="row">
-		<div class="column">
-			<div class="span3">
-				<h3>Are you a Client?</h3>
-				<p><%= image_tag "coder.jpg", :class => "img-rounded", :alt => "Coder" %></p>
-			</div>
-			<div class="span3">
-				<p>Flexitarian iphone consectetur, cupidatat retro sed aliquip farm-to-table direct trade brunch echo park lo-fi cillum.</p>
-			</div>
-			<div class="span3">
-				<%= button_to 'Sign-up Client', new_client_url, :method => "get", :class => "btn btn-large btn-block btn-primary" %>
-			</div>
+		<div class="span6">
+			<h3>Are you a Client?</h3>
+			<p><%= image_tag "owner.jpg", :class => "img-rounded", :alt => "flower shop owner" %></p>
+			<p>Flexitarian iphone consectetur, cupidatat retro sed aliquip farm-to-table direct trade brunch echo park lo-fi cillum.</p>
+			<%= button_to 'Sign-up Client', new_client_url, :method => "get", :class => "btn btn-large btn-block btn-primary" %>
 		</div>
-		<div class="column">
-			<div class="span3">
+		<div class="span6">
 				<h3>Are you a Starter?</h3>
-				<p><%= image_tag "coder.jpg", :class => "img-rounded", :alt => "Coder" %></p>
-			</div>
-			<div class="span3">
+				<p><%= image_tag "coder.jpg", :class => "img-rounded", :alt => "young coder" %></p>
 				<p>Flexitarian iphone consectetur, cupidatat retro sed aliquip farm-to-table direct trade brunch echo park lo-fi cillum.</p>
-			</div>
-			<div class="span3">
-				<%= button_to 'Sign-up Starter', new_starter_url, :method => "get", :class => "btn btn-large btn-block btn-primary" %>
-			</div>
+			<%= button_to 'Sign-up Starter', new_starter_url, :method => "get", :class => "btn btn-large btn-block btn-primary" %>
 		</div>
 	</div>
 

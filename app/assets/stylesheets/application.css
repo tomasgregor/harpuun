@@ -19,17 +19,6 @@
 	padding-left: 3%;
 }
 
-.greeting {
-	padding: 31px 15px 0px;
-}
-
-/*.wrapper {
-	min-height: 100%;
-	height: auto !important;
-	height: 100%;
-	margin: 0 auto -.25em;
-}*/
-
 .footstick {
     color: white;
     background: #1B315E;
@@ -37,6 +26,7 @@
     padding: 5px 0 20px 0;
     border-top: 1px solid #3EB54A;
     text-align: center;
+    font-size: 70%;
 }
 
 .home-whale{
@@ -47,13 +37,17 @@
 }
 
 .navbar-logo{
-	padding-top: 0;
-	padding-bottom: 10px;
+	padding-bottom: 15px;
 }
 
 .nav-unlinked {
-	float: left;
-	padding-top: 2%;
-	font-weight: 700;
-	width: 100%;
+	padding-top: 3.75%;
+	font-weight: 100;
 }
+
+/*.wrapper {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	margin: 0 auto -.25em;
+}*/
