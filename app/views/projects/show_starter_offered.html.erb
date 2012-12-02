@@ -43,4 +43,7 @@
   <%= @offered_project.skill_id3 %>
 </p>
 
+<%= button_to 'Accept Project', accept_project_url(@starter, @offered_project), :method => "put" %>
+<%= button_to 'Reject Project', reject_project_url(@starter, @offered_project), :method => "put" %>
+
 <%= link_to 'Back to Projects', starter_projects_url(@starter) %>

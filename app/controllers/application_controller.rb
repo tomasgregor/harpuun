@@ -10,6 +10,10 @@ class ApplicationController < ActionController::Base
 
   def current_starter
     @starter ||= Starter.find_by_id(session[:starter_id])
-  end  
+  end
   
+  def offered_project
+    @offered_project ||= Project.find_by_offered_to(current_starter.id)
+  end
+
 end
