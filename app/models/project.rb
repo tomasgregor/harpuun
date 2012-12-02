@@ -1,31 +1,49 @@
 class Project < ActiveRecord::Base
-  attr_accessible :client_id, :deadline, :description, :name, :reward, :skill_id1, :skill_id2, :skill_id3, :url
+  attr_accessible :client_id, :deadline, :description, :name, :reward, :skill_id1, :skill_id2, :skill_id3, :url, :offered_to, :accepted_by
   
   belongs_to :client
   has_many :offers
   
-  before_save :offer_project_to_starter
+  after_save :offer_project_to_starter, :add_offer_to_history_list
+  
+  
+  def available_for_offer?
+    self.accepted_by.blank? && self.offered_to.blank?
+  end
+  
+  def offered_starters
+    offers.pluck(:starter_id)
+  end
+
+  def self.starters_with_offers
+    Project.pluck(:offered_to)
+  end
+  
+  def eligible_starters_for_offer
+    not_eligible_starters_ids = offered_starters + Project.starters_with_offers
+    all_starters_ids = Starter.pluck(:id)
+    all_starters_ids - not_eligible_starters_ids
+  end
+
+
+  private
   
   def offer_project_to_starter
-    if !self.offered_to
-      previously_offered_starters = self.offers.select(:starter_id).map(&:starter_id)
-      starters_with_active_offer = Project.select(:offered_to).map(&:offered_to)
-      not_eligible_starters_ids = previously_offered_starters + starters_with_active_offer
-      all_starters_ids = Starter.select(:id).map(&:id)
-      eligible_starters_ids = all_starters_ids - not_eligible_starters_ids
-      if eligible_starters_ids.any?
-        offered_starter_id = eligible_starters_ids.shuffle[0]
-        self.offered_to = offered_starter_id
-        self.offers.create(:starter_id => offered_starter_id)
-      end
+    if available_for_offer? && eligible_starters_for_offer.any?
+      offered_starter_id = eligible_starters_for_offer.shuffle[0]
+      self.update_attributes(:offered_to => offered_starter_id)
     end
   end
   
-  # offer_project_to_starter
-  # checks beofre every Project save action (create or update) whether offered_to is empty and. if yes, tries to assign an eligible Starter Id
-  # finds eligible Starters without offered project and eliminates starters who were offered the Project before
-  # randomly picks 1 eligible Starter
-  # assignes his Id to Project offered_to column
   
-  
+  def add_offer_to_history_list
+    if self.offered_to.present?
+      offer = Offer.where(:project_id => self.id).find_by_starter_id(self.offered_to)
+      if offer.blank?
+        today = Date.today
+        self.offers.create(:starter_id => self.offered_to, :offered_on => today)
+      end
+    end
+  end
+   
 end
