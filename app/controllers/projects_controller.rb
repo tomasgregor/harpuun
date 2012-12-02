@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   
-  before_filter :require_client, :except => :index_starter
+  before_filter :require_client, :only => [:index, :new, :show, :update, :create, :destroy]
   
   def require_client
     if current_client.nil? || current_client.id != params[:client_id].to_i
@@ -95,7 +95,7 @@ class ProjectsController < ApplicationController
   
   def index_starter
     @starter = current_starter
-    @offered_project = Project.where(:offered_to => @starter.id)
+    @offered_project = offered_project
     @projects = Project.where(:accepted_by => @starter.id)
     
     respond_to do |format|
@@ -106,12 +106,28 @@ class ProjectsController < ApplicationController
   
   def show_starter_offered
     @starter = current_starter
-    @offered_project = Project.where(:offered_to => @starter.id)
-    @clients = @offered_project.client
+    @offered_project = offered_project
+    @client = @offered_project.client
     
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @project }
+    end
+  end
+  
+  def accept_project
+    if offered_project.update_attributes(offered_to: nil, accepted_by: current_starter.id)
+      redirect_to starter_projects_url(@starter)
+    else
+      render 'show_starter_offered'
+    end
+  end
+  
+  def reject_project
+    if offered_project.update_attributes(offered_to: nil)
+      redirect_to starter_projects_url(@starter)
+    else
+      render 'show_starter_offered'
     end
   end
   

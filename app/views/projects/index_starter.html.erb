@@ -1,6 +1,6 @@
 <% if @offered_project.present? %>
 	<h3>You're offered a new project</h3>
-	<strong><%= link_to @offered_project.name, starter_project_url(@offered_project) %></strong>
+	<strong><%= link_to @offered_project.name, starter_offered_project_url(@starter, @offered_project) %></strong>
 <% else  %>
 	<h3>You haven't been offered a new project</h3>
 <% end %>
