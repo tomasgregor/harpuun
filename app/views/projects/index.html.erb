@@ -10,10 +10,11 @@
     <th>Url</th>
     <th>Reward</th>
     <th>Deadline</th>
-    <th>Client</th>
     <th>Skill id1</th>
     <th>Skill id2</th>
     <th>Skill id3</th>
+	<th>Offered to</th>
+	<th>Accepted by</th>
     <th></th>
     <th></th>
     <th></th>
@@ -26,10 +27,11 @@
     <td><%= project.url %></td>
     <td><%= project.reward %></td>
     <td><%= project.deadline %></td>
-    <td><%= project.client_id %></td>
     <td><%= project.skill_id1 %></td>
     <td><%= project.skill_id2 %></td>
     <td><%= project.skill_id3 %></td>
+    <td><%= project.offered_to %></td>
+    <td><%= project.accepted_by %></td>
     <td><%= link_to 'Show', client_project_path(@client, project) %></td>
     <td><%= link_to 'Edit', edit_client_project_path(@client, project) %></td>
     <td><%= link_to 'Destroy', client_project_url(@client, project), method: :delete, data: { confirm: 'Are you sure?' } %></td>

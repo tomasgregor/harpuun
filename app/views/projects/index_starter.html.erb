@@ -1,11 +1,13 @@
-<h1>Listing projects</h1>
-
-
+<% if @offered_project.present? %>
+	<h3>You're offered a new project</h3>
+	<strong><%= link_to @offered_project.name, starter_offered_project_url(@starter, @offered_project) %></strong>
 <% else  %>
-	<h2>You haven't been offered a project yet</h2>
+	<h3>You haven't been offered a new project</h3>
 <% end %>
 
+<!-- Shows list of projects accepted in the past byt the Starter -->
 <% if @projects.any?  %>
+	<h4>Projects you have accepted</h4>
 	<table>
 	  <tr>
 	    <th>Name</th>

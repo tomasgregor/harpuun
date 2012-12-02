@@ -1,5 +1,10 @@
-<h1>New starter</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Back', starters_path %>
+<div class="container">
+	<div class="indented hero-unit">
+		<form>
+		<legend>New Starter</legend>
+		<%= image_tag "whale_flag.png", :class => "home-whale", :alt => "harpuun whale" %>
+		<%= render 'form' %>
+		</form>
+		<%= link_to 'Back', starters_path %>
+	</div>
+</div>

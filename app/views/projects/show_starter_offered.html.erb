@@ -1,0 +1,49 @@
+<p>
+  <b>Name:</b>
+  <%= @offered_project.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @offered_project.description %>
+</p>
+
+<p>
+  <b>Url:</b>
+  <%= @offered_project.url %>
+</p>
+
+<p>
+  <b>Reward:</b>
+  <%= @offered_project.reward %>
+</p>
+
+<p>
+  <b>Deadline:</b>
+  <%= @offered_project.deadline %>
+</p>
+
+<p>
+  <b>Client:</b>
+  <%= @client.first_name %> <%= @client.last_name %>
+</p>
+
+<p>
+  <b>Skill id1:</b>
+  <%= @offered_project.skill_id1 %>
+</p>
+
+<p>
+  <b>Skill id2:</b>
+  <%= @offered_project.skill_id2 %>
+</p>
+
+<p>
+  <b>Skill id3:</b>
+  <%= @offered_project.skill_id3 %>
+</p>
+
+<%= button_to 'Accept Project', accept_project_url(@starter, @offered_project), :method => "put" %>
+<%= button_to 'Reject Project', reject_project_url(@starter, @offered_project), :method => "put" %>
+
+<%= link_to 'Back to Projects', starter_projects_url(@starter) %>

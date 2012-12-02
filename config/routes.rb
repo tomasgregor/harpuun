@@ -6,7 +6,10 @@ Harpuun::Application.routes.draw do
     resources :projects
   end
   
-  # get '/starters/:id/projects' => 'projects#index_starter', :as => 'starter_projects'
+  get '/starters/:starter_id/projects' => 'projects#index_starter', :as => 'starter_projects'
+  get '/starters/:starter_id/offered/:id' => 'projects#show_starter_offered', :as => 'starter_offered_project'
+  put '/starters/:starter_id/offered/:id/accept' => 'projects#accept_project', :as => 'accept_project'
+  put '/starters/:starter_id/offered/:id/reject' => 'projects#reject_project', :as => 'reject_project'
   
   resources :starters
   
