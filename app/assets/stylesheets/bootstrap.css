@@ -725,6 +725,8 @@ h4 small {
   border-bottom: 1px solid #eeeeee;
 }
 
+.inset { text-shadow: #fff 1px 0px 1px, #608191 0 -1px 0;}
+
 ul,
 ol {
   padding: 0;
