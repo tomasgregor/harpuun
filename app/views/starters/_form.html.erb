@@ -2,7 +2,8 @@
   <% if @starter.errors.any? %>
     <div id="error_explanation">
       <h4><%= pluralize(@starter.errors.count, "error") %> prohibited this Starter from being saved:</h4>
-      <ul>
+      
+	  <ul>
 	      <% @starter.errors.full_messages.each do |msg| %>
 	        <li><%= msg %></li>
 	      <% end %>
@@ -10,8 +11,6 @@
     </div>
   <% end %>
 
-
-<div class ="fieldset">
   <div class="field">
     <%= f.label :first_name %>
     <%= f.text_field :first_name %><br />
@@ -43,5 +42,5 @@
   <div class="actions">
     <%= f.submit :class => "btn btn-large btn-primary" %>
   </div>
-</div>
+
 <% end %>
