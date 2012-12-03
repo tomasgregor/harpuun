@@ -18,6 +18,11 @@ Harpuun::Application.routes.draw do
 
   
   #  Routes for sessions
+  get '/signin' => 'sessions#new', :as => 'signin'
+  get '/signout' => 'sessions#destroy', :as => 'signout'
+  post '/session' => 'sessions#create'
+
+  
   get '/client_signin' => 'client_sessions#new', :as => 'signin_client'
   get '/client_signout' => 'client_sessions#destroy', :as => 'signout_client'
   post '/client_session' => 'client_sessions#create'
