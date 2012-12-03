@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     @client = Client.find_by_email(params[:email])
       if @starter && @starter.authenticate(params[:password])
         session[:starter_id] = @starter.id
-        redirect_to starter_projects_url(@starter), notice: 'You are logged in!'
+        redirect_to starter_projects_url(@starter)
       elsif @client && @client.authenticate(params[:password])
         session[:client_id] = @client.id
           if @client.projects.any?
