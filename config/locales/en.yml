@@ -3,3 +3,11 @@
 
 en:
   hello: "Hello world"
+
+
+  activerecord:
+    attributes:
+      starter:
+        password_digest: "Password confirmation"
+      client:
+        password_digest: "Password confirmation"

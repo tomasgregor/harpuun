@@ -4,6 +4,7 @@
   <title>Harpuun</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
+<script type="text/javascript" src="http://twitter.github.com/bootstrap/assets/js/bootstrap-dropdown.js"></script>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -50,7 +51,7 @@
 				  <!-- <li class="nav-unlinked">Sign in:</li> -->	
 	              <li><%= link_to 'Sign In', signin_url %></li>
 				  <li class="nav-unlinked">or</li>
-				  <li><%= link_to 'Sign Up', "#{}" %></li>
+				  <li><%= link_to 'Sign Up', "#"%></li>
 	        <% end %>
 
         </ul>
