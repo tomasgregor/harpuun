@@ -15,5 +15,3 @@
 //= require jquery-ui
 //= require_tree .
 
-
-$('.dropdown-toggle').dropdown()
