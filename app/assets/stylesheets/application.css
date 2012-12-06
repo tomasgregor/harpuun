@@ -71,6 +71,11 @@ textarea {
 	text-align: center;
 }
 
+.tsl{
+  margin-top: 1%;
+  margin-bottom: 1.5%;
+}
+
 /*.wrapper {
 	min-height: 100%;
 	height: auto !important;
