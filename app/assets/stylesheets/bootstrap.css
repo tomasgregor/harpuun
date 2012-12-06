@@ -955,7 +955,7 @@ input,
 button,
 select,
 textarea {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: normal;
   line-height: 20px;
 }
@@ -1003,9 +1003,13 @@ input[type="color"],
 }
 
 input,
+.uneditable-input {
+  width: 210px;
+}
+
 textarea,
 .uneditable-input {
-  width: 206px;
+  width: 555px;
 }
 
 textarea {
@@ -1613,13 +1617,13 @@ select:focus:required:invalid:focus {
   height: 20px;
   min-width: 16px;
   padding: 4px 5px;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: normal;
   line-height: 20px;
   text-align: center;
-  text-shadow: 0 1px 0 #ffffff;
-  background-color: #eeeeee;
-  border: 1px solid #ccc;
+/*  text-shadow: 0 1px 0 #ffffff;*/
+/*  background-color: #8EB5C6;*/
+/*  border: 1px solid #ccc;*/
 }
 
 .input-append .add-on,
@@ -1854,7 +1858,7 @@ legend + .control-group {
 
 .form-horizontal .control-label {
   float: left;
-  width: 160px;
+  width: 108px;
   padding-top: 5px;
   text-align: right;
 }
@@ -1862,7 +1866,7 @@ legend + .control-group {
 .form-horizontal .controls {
   *display: inline-block;
   *padding-left: 20px;
-  margin-left: 180px;
+  margin-left: 10px;
   *margin-left: 0;
 }
 

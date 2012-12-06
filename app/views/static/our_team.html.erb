@@ -26,7 +26,7 @@
 					<%= image_tag "http://tslcms.herokuapp.com/assets/john-lemein-a43a98c4d1998bb552ce13135678dc14.jpg" %>
 					<h4><strong>John Lemein</strong></h4>
 					<p><small>Chicago, IL</small></p>
-					<p><small>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</small></p>
+					<p><small>Originally from Chicago's North Shore. Graduated with a BFA in Graphic Design from Columbia College Chicago. Currently a graphic designer at the Chicago Sun-Times. Lays out print special sections and ToDrive, the Sun-Times' auto section, online editor of todrive.com. An Advanced HTML and CSS student at the Starter League, will be taking User Experience in the winter quarter. Enjoys distance running and skiing.</small></p>
 				  </div>
 				</div>
 			    <div class="row">
@@ -39,8 +39,8 @@
 						  <%= label_tag :email, "Email:" %>
 						  <%= text_field_tag :email %>
 						  <%= label_tag :mesage, "Message:" %>
-						  <%= text_area_tag :message, nil, :rows => 13 %></br>
-						  <%= submit_tag "Submit"%>
+						  <%= text_area_tag :message, nil, :rows => 5 %></br>
+						  <%= submit_tag "Submit", :class => "btn btn-large btn-primary"%>
 						<% end %>
 					</div>
 				  </div>	

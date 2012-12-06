@@ -29,11 +29,19 @@
     font-size: 70%;
 }
 
-.home-whale{
+.home-whale {
 	float: right;
 	max-width: 20%;
 	min-width: 10%;
 	padding-left: 4%;
+}
+
+.signup-whale {
+	max-width: 20%;
+	min-width: 10%;
+	padding-left: 4%;
+	position: absolute;
+	right: 30px;
 }
 
 .navbar-logo{
@@ -48,6 +56,17 @@
 .tagline_blue {
     color: #1C2C60;
 }
+
+textarea {
+	width: 500px;
+	
+}
+
+.btn-signup {
+	margin-left: 120px;
+}
+
+
 
 /*.wrapper {
 	min-height: 100%;

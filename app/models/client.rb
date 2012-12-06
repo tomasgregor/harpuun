@@ -3,11 +3,10 @@ class Client < ActiveRecord::Base
   
   has_many :projects
   
-  validates :first_name, :presence => true, :length => { :minimum => 2 }
-  validates :last_name, :presence => true, :length => { :minimum => 2 }
+  validates :first_name, :length => { :minimum => 2 }
+  validates :last_name, :length => { :minimum => 2 }
 
-  validates :email, 
-            :presence => true, 
+  validates :email,
             :uniqueness => true,
             :email_format => true
   
