@@ -1,4 +1,4 @@
-<%= form_for @starter, :html => {:multipart => true} do |f| %>
+<%= form_for @starter, :html => {:multipart => true, :class => "form-horizontal"} do |f| %>
   <% if @starter.errors.any? %>
     <div id="error_explanation">
       <h4><%= pluralize(@starter.errors.count, "error") %> prohibited this Starter from being saved:</h4>
@@ -11,36 +11,36 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :first_name %>
-    <%= f.text_field :first_name %>
+  <div class="control-group">
+    <%= f.label :first_name, :class => "control-label", :for =>"inputFirstName" %>
+    <%= f.text_field :first_name, :class => "controls", :id => "inputFirstName" %>
   </div>
-  <div class="field">
-    <%= f.label :last_name %>
-    <%= f.text_field :last_name %>
+  <div class="control-group">
+    <%= f.label :last_name, :class => "control-label", :for =>"inputLastName" %>
+    <%= f.text_field :last_name, :class => "controls", :id => "inputLastName" %>
   </div>
-  <div class="field">
-    <%= f.label :email %>
-    <%= f.text_field :email %>
+  <div class="control-group">
+    <%= f.label :email, :class => "control-label", :for =>"inputEmail" %>
+    <%= f.text_field :email, :class => "controls", :id => "inputEmail"  %>
   </div>
-  <div class="field">
-    <%= f.label :avatar, "Upload your picture" %>
-    <%= f.file_field :avatar %>
+  <div class="control-group">
+    <%= f.label :twitter, :class => "control-label", :for =>"inputTwitter" %>
+    <%= f.text_field :twitter, :class => "controls", :id => "inputTwitter" %>
   </div>
-  <div class="field">
-    <%= f.label :remote_avatar_url, "or paste picture's link" %>
-	<%= f.text_field :remote_avatar_url %>
+  <div class="control-group">
+    <%= f.label :avatar, "Your photo", :class => "control-label", :for =>"inputPictureFile" %>
+    <%= f.file_field :avatar, :class => "controls", :id => "inputPictureFile" %>
   </div>
-  <div class="field">
-    <%= f.label :password %>
-    <%= f.password_field :password %>
+  <div class="control-group">
+    <%= f.label :password, :class => "control-label", :for =>"inputPassword" %>
+    <%= f.password_field :password, :class => "controls", :id => "inputPassword"  %>
   </div>
-  <div class="field">
-    <%= f.label :password_confirmation %>
-    <%= f.password_field :password_confirmation %>
+  <div class="control-group">
+    <%= f.label :password_confirmation, :class => "control-label", :for =>"inputPasswordConfirmation" %>
+    <%= f.password_field :password_confirmation, :class => "controls", :id => "inputPasswordConfirmation"  %>
   </div>
-  <div class="actions">
-    <%= f.submit :class => "btn btn-large btn-primary" %>
+  <div class="control-group">
+    <%= f.submit :class => "btn btn-large btn-primary btn-signup" %>
   </div>
 
 <% end %>
