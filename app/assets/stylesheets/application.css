@@ -24,9 +24,9 @@
     background: #1B315E;
     height: .25em;
     padding: 5px 0 20px 0;
-    border-top: 1px solid #3EB54A;
+    border-top: 1px solid #8EB5C6;
     text-align: center;
-    font-size: 70%;
+    font-size: 75%;
 }
 
 .home-whale{
@@ -54,9 +54,6 @@ textarea {
 	
 }
 
-/*.wrapper {
-	min-height: 100%;
-	height: auto !important;
-	height: 100%;
-	margin: 0 auto -.25em;
-}*/
+.center{
+	text-align: center;
+}
