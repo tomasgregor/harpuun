@@ -73,6 +73,7 @@ img {
   vertical-align: middle;
   border: 0;
   -ms-interpolation-mode: bicubic;
+  -webkit-border-radius: 3px;
 }
 
 #map_canvas img,
