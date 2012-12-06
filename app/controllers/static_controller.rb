@@ -10,4 +10,8 @@ class StaticController < ApplicationController
   def our_team
     
   end
+  
+  def coming_soon
+  
+  end
 end
