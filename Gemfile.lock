@@ -73,7 +73,6 @@ GEM
       net-ssh (>= 1.99.1)
     net-ssh (2.6.2)
     nokogiri (1.5.5)
-    pg (0.14.1)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)
@@ -132,7 +131,6 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   fog
   jquery-rails
-  pg
   railroady
   rails (= 3.2.8)
   rmagick
