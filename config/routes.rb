@@ -35,6 +35,7 @@ Harpuun::Application.routes.draw do
   get '/home' => 'static#home'
   get '/how_it_works' => 'static#how_it_works'
   get '/our_team' => 'static#our_team'
+  get '/coming_soon' => 'static#coming_soon'
   
   # Routes for mockups
   get "/mockups/client_signup" => 'mockups#client_signup'

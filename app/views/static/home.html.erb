@@ -10,9 +10,9 @@
 	<div class="indented hero-unit">
 		<div class="indented row">
 			<%= image_tag "whale_flag.png", :class => "home-whale", :alt => "harpuun whale" %>
-			<h2 class="inset tagline_blue">Harpoon for the talent when it's still there!</h2>
+			<h2 class="inset tagline_blue">Hook talent while it's there for the taking!</h2>
 			<h3>Project managers need developers and designers and Starter League students need work to get their portfolios going.</h3>
-			<h3>Find each other and hook up a job.</h3>
+			<h3>Find each other and get to work.</h3>
 		</div>
 	</div>
 
@@ -20,36 +20,37 @@
 		<div class="span6">
 			<h3>Are you a Client?</h3>
 			<p><%= image_tag "owner.jpg", :class => "img-rounded", :alt => "flower shop owner" %></p>
-			<p>Are you an onwer of a flower shop and looking for someone to help you with your webpage? Or a project manager in a big company and need help with prototyping?</p>
-			<%= button_to 'Sign-up Client', new_client_url, :method => "get", :class => "btn btn-large btn-block btn-primary" %>
+			<p>Are you a small business owner, looking for someone to help you with your webpage? Or a project manager in a big company and need help with prototyping?</p>
+			<%= button_to 'Sign-up Client', coming_soon_url, :method => "get", :class => "btn btn-large btn-block btn-primary" %>
 		</div>
 		<div class="span6">
 				<h3>Are you a Starter?</h3>
 				<p><%= image_tag "coder.jpg", :class => "img-rounded", :alt => "young coder" %></p>
-				<p>Flexitarian iphone consectetur, cupidatat retro sed aliquip farm-to-table direct trade brunch echo park lo-fi cillum.</p>
+				<p>The Starter League has prepared you for this. You know you're ready to work on real-world projects. Get signed up and start filling out your portfolio.</p>
 			<%= button_to 'Sign-up Starter', new_starter_url, :method => "get", :class => "btn btn-large btn-block btn-primary" %>
 		</div>
 	</div>
 
-	<div class="hero-unit indented">
-	  <h2 class="inset">How it works</h2>
-	  <div class="row">
-	  	<div class="span3">
-	  		<img></img>
-	  		<p><small>Flexitarian iphone consectetur, cupidatat retro sed aliquip farm-to-table direct trade brunch echo park lo-fi cillum. Blog adipisicing brunch VHS, aute consectetur fap occupy. Voluptate excepteur 3 wolf moon officia. In direct trade beard reprehenderit etsy placeat.</small>
+	<div class="tsl">
+		<p class="center"><%= image_tag "TSL_logo.png", :class => "inset", :alt => "Starter League logo"%> </p>
+		<h3 class="center">What Starters can do for Clients</h3>
+	</div>
+	<div class="row">
+	  	<div class="tsl span4">
+	  		<h4>Web Development</h4>
+	  		<p><small>Build great database-backed, dynamic web applications with Ruby on Rails – used by top websites like Twitter. Integrate content from other sources, such as Facebook and Google. Create an e-commerce site or a custom Content Management System.</small>
 			</p>
 	  	</div>
-	  	<div class="span3">
-	  		<img></img>
-	  		<p><small>Flexitarian iphone consectetur, cupidatat retro sed aliquip farm-to-table direct trade brunch echo park lo-fi cillum. Blog adipisicing brunch VHS, aute consectetur fap occupy. Voluptate excepteur 3 wolf moon officia. In direct trade beard reprehenderit etsy placeat.</small>
+	  	<div class="tsl span4">
+	  		<h4>Web Design</h4>
+	  		<p><small>Design the front-end of a fundamentally sound website with fully functional HTML and CSS. Bring sites to life with exciting text, images, audio and video. Advanced designers integrate the latest elements and styles available with HTML5 and CSS3.</small>
 			</p>
 	  	</div>
-	  	<div class="span3">
-	  		<img></img>
-	  		<p><small>Flexitarian iphone consectetur, cupidatat retro sed aliquip farm-to-table direct trade brunch echo park lo-fi cillum. Blog adipisicing brunch VHS, aute consectetur fap occupy. Voluptate excepteur 3 wolf moon officia. In direct trade beard reprehenderit etsy placeat.</small>
+	  	<div class="tsl span4">
+	  		<h4>User Experience</h4>
+	  		<p><small>Implement best practices for website usability and aesthetics. Make decisions based on vaildated research. Create engaging, user-centered products that viewers will be motivated to interact with.</small>
 			</p>
-	  	</div>
-	  </div>	
+	  	</div>	
 	</div>
 </body>
 </html>

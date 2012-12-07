@@ -24,9 +24,9 @@
     background: #1B315E;
     height: .25em;
     padding: 5px 0 20px 0;
-    border-top: 1px solid #3EB54A;
+    border-top: 1px solid #8EB5C6;
     text-align: center;
-    font-size: 70%;
+    font-size: 75%;
 }
 
 .home-whale {
@@ -67,6 +67,27 @@ textarea {
 }
 
 
+.center{
+	text-align: center;
+}
+
+.actions {
+	margin-left: 108px;
+}
+
+.form_info_text {
+	margin: 0 0 0 118px;
+	font-size: 14px;
+
+.tsl{
+  margin-top: 1%;
+  margin-bottom: 1.5%;
+}
+
+.icon{
+	max-width: 20%;
+	padding-top: 8%;
+}
 
 /*.wrapper {
 	min-height: 100%;

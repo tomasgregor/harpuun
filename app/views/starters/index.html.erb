@@ -1,20 +1,13 @@
-<h1>Listing starters</h1>
+<h1>The Starters</h1>
 
 <table>
   <tr>
+    <th>Avatar</th>
     <th>First name</th>
     <th>Last name</th>
     <th>Email</th>
-    <th>Password digest</th>
-    <th>Avatar</th>
-    <th>Skill id1</th>
-    <th>Skill id2</th>
-    <th>Skill id3</th>
     <th>Year</th>
     <th>Quarter</th>
-    <th>Class id1</th>
-    <th>Class id2</th>
-    <th>Class id3</th>
     <th></th>
     <th></th>
     <th></th>
@@ -22,22 +15,15 @@
 
 <% @starters.each do |starter| %>
   <tr>
+    <td><%= starter.avatar %></td>
     <td><%= starter.first_name %></td>
     <td><%= starter.last_name %></td>
     <td><%= starter.email %></td>
-    <td><%= starter.password_digest %></td>
-    <td><%= starter.avatar %></td>
-    <td><%= starter.skill_id1 %></td>
-    <td><%= starter.skill_id2 %></td>
-    <td><%= starter.skill_id3 %></td>
     <td><%= starter.year %></td>
     <td><%= starter.quarter %></td>
-    <td><%= starter.class_id1 %></td>
-    <td><%= starter.class_id2 %></td>
-    <td><%= starter.class_id3 %></td>
-    <td><%= link_to 'Show', starter %></td>
+    <td><%= link_to 'View Profile', starter %></td>
     <td><%= link_to 'Edit', edit_starter_path(starter) %></td>
-    <td><%= link_to 'Destroy', starter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Delete', starter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

@@ -11,6 +11,8 @@
     </div>
   <% end %>
 
+  <p>Fill you login info and get hooked:</p>
+
   <div class="control-group">
     <%= f.label :first_name, :class => "control-label", :for =>"inputFirstName" %>
     <%= f.text_field :first_name, :class => "controls", :id => "inputFirstName" %>
@@ -32,66 +34,32 @@
     <%= f.password_field :password, :class => "controls", :id => "inputPassword"  %>
   </div>
   <div class="control-group">
-    <%= f.label :password_confirmation, :class => "control-label", :for =>"inputPasswordConfirmation" %>
+    <%= f.label :password_confirmation, "Confirm password", :class => "control-label", :for =>"inputPasswordConfirmation" %>
     <%= f.password_field :password_confirmation, :class => "controls", :id => "inputPasswordConfirmation"  %>
   </div>
+  <br />
+  <p>Fill additional info and end we will provide even better service for you:</p>
 
-<% if session[:starter_id] != nil %>  
-  <div class="control-group">
-    <%= f.label :year, :class => "control-label", :for =>"inputYear" %>
-    <%= f.text_field :year, :class => "controls", :id => "inputYear"  %>
+  <div class="form-inline">
+	<%= f.label :last_quarter, "Last TSL quarter", :class => "control-label" %>
+	<%= f.select :quarter, raw("<option>fall</option><option>winter</option><option>spring</option><option>summer</option>"), :class => "input-small" %>    
+	<%= f.select :year, raw("<option>2012</option><option>2011</option>"), :class => "input-small" %>
   </div>
-  <div class="control-group">
-    <%= f.label :quarter, :class => "control-label", :for =>"inputQuarter" %>
-    <%= f.text_field :quarter, :class => "controls", :id => "inputQuarter"  %>
+
+  <div class="form-inline">
+	<p class="form_info_text">Select skills in order of your priority based on what you know best or what jobs you want to get. You can select just 1.</p>
+	<%= f.label :skillset, "Your skills", :class => "control-label" %>
+	<%= f.collection_select :skill_id1, Skill.all, :id, :name, :prompt => "first ...", :class => "input-small" %>
+	<%= f.collection_select :skill_id2, Skill.all, :id, :name, :prompt => "second ...", :class => "input-small" %>    
+	<%= f.collection_select :skill_id3, Skill.all, :id, :name, :prompt => "third ...", :class => "input-small" %>
   </div>
+
   <div class="control-group">
-    <%= f.label :class_id1, :class => "control-label", :for =>"inputClassID1" %>
-    <%= f.text_field :class_id1, :class => "controls", :id => "inputClassID1"  %>
+    <%= f.label :twitter, :class => "control-label", :for =>"inputTwitter" %>
+    <%= f.text_field :twitter, value: '@', :class => "controls", :id => "inputTwitter" %>
   </div>
-  <div class="control-group">
-    <%= f.label :class_id2, :class => "control-label", :for =>"inputClassID2" %>
-    <%= f.text_field :class_id2, :class => "controls", :id => "inputClassID2"  %>
-  </div>
-  <div class="control-group">
-    <%= f.label :class_id3, :class => "control-label", :for =>"inputClassID3" %>
-    <%= f.text_field :class_id3, :class => "controls", :id => "inputClassID3"  %>
-  </div>    
-  <div class="control-group">
-    <%= f.label :skill_id1, :class => "control-label", :for =>"inputSkillID1" %>
-    <%= f.text_field :skill_id1, :class => "controls", :id => "inputSkillID1"  %>
-  </div>    
-  <div class="control-group">
-    <%= f.label :skill_id2, :class => "control-label", :for =>"inputSkillID2" %>
-    <%= f.text_field :skill_id2, :class => "controls", :id => "inputSkillID2"  %>
-  </div>    
-  <div class="control-group">
-    <%= f.label :skill_id3, :class => "control-label", :for =>"inputSkillID3" %>
-    <%= f.text_field :skill_id3, :class => "controls", :id => "inputSkillID3"  %>
-  </div>    
 
-<% end %>
-<!-- <p>
-  <b>Quarter:</b>
-  <%= @starter.quarter %>
-</p>
-
-<p>
-  <b>Classes Enrolled or Completed:</b>
-  <%= @starter.class_id1 %>
-  <%= @starter.class_id2 %>
-  <%= @starter.class_id3 %>
-</p>
-
-<p>
-  <b>Skills</b>
-  <%= @starter.skill_id1 %>
-  <%= @starter.skill_id2 %>
-  <%= @starter.skill_id3 %>
-</p> -->
-
-
-  <div class="control-group">
+  <div class="actions">
     <%= f.submit :class => "btn btn-large btn-primary btn-signup" %>
   </div>
 

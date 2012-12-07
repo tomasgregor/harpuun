@@ -1,39 +1,49 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  
+  <div class="span12">
+    <p>
+      <%= image_tag @starter.avatar_url(:thumb).to_s, :class => 'rounded' %>
+    </p>
+  </div>
 
-<p>
-  <%= image_tag @starter.avatar_url(:thumb).to_s, :class => 'rounded' %>
-</p>
-<p>
-  <%= @starter.first_name %> <%= @starter.last_name %>
-</p>
+  <div class="span12">    
+    <p>
+      <%= @starter.first_name %> <%= @starter.last_name %>
+    </p>
+  </div> 
 
-<p>
-  <%= @starter.email %>
-</p>
+  <div class="span12">
+    <p>
+      <%= @starter.email %>
+    </p>
+  </div> 
 
-<p>
-  <b>Year:</b>
-  <%= @starter.year %>
-</p>
+  <div class="span12">
+    <h4>Year:</h4>
+      <%= @starter.year %>
+    </p>
+  </div> 
 
-<p>
-  <b>Quarter:</b>
-  <%= @starter.quarter %>
-</p>
+  <div class="span12">
+    <h4>Quarter:</h4>
+  </div>
+  <div class="span12">
+      <p><%= Starter.find_by_id(@starter.quarter) %></p>
+  </div>   
 
-<p>
-  <b>Classes Enrolled or Completed:</b>
-  <%= @starter.class_id1 %>
-  <%= @starter.class_id2 %>
-  <%= @starter.class_id3 %>
-</p>
-
-<p>
-  <b>Skills</b>
-  <%= @starter.skill_id1 %>
-  <%= @starter.skill_id2 %>
-  <%= @starter.skill_id3 %>
-</p>
+  <div class="span12">
+    <h4>
+      <strong>Skills</strong>
+    </h4>
+  </div>  
+  <div class="span12"> 
+    <p>  
+      <%= Skill.find_by_id(@starter.skill_id1).name %>
+      <%= Skill.find_by_id(@starter.skill_id2).name %>
+      <%= Skill.find_by_id(@starter.skill_id3).name %>
+    </p>
+  </div> 
+</div>
 
 <%= link_to 'Edit', edit_starter_path(@starter) %> |
 <%= link_to 'Back', starters_path %>

@@ -263,6 +263,7 @@ a:hover {
 
 .span4 {
   width: 300px;
+
 }
 
 .span3 {
@@ -955,7 +956,7 @@ input,
 button,
 select,
 textarea {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: normal;
   line-height: 20px;
 }
@@ -1100,9 +1101,9 @@ input[type="file"] {
 }
 
 select {
-  width: 220px;
+  width: 120px;
   background-color: #ffffff;
-  border: 1px solid #cccccc;
+  border: 1px solid #ffffff;
 }
 
 select[multiple],
@@ -1788,7 +1789,8 @@ input.search-query {
 .form-horizontal .input-append {
   display: inline-block;
   *display: inline;
-  margin-bottom: 0;
+  margin-bottom: 20px;
+  margin-left: 10px;
   vertical-align: middle;
   *zoom: 1;
 }
@@ -1841,7 +1843,7 @@ legend + .control-group {
 }
 
 .form-horizontal .control-group {
-  margin-bottom: 20px;
+  margin-bottom: 0;
   *zoom: 1;
 }
 
