@@ -25,14 +25,16 @@
     <%= f.label :email, :class => "control-label", :for =>"inputEmail" %>
     <%= f.text_field :email, :class => "controls", :id => "inputEmail"  %>
   </div>
-  <div class="control-group">
-    <%= f.label :password, :class => "control-label", :for =>"inputPassword" %>
-    <%= f.password_field :password, :class => "controls", :id => "inputPassword"  %>
-  </div>
-  <div class="control-group">
-    <%= f.label :password_confirmation, "Confirm password", :class => "control-label", :for =>"inputPasswordConfirmation" %>
-    <%= f.password_field :password_confirmation, :class => "controls", :id => "inputPasswordConfirmation"  %>
-  </div>
+  
+	<div class="control-group">
+	  <%= f.label :password, :class => "control-label", :for =>"inputPassword" %>
+	  <%= f.password_field :password, :class => "controls", :id => "inputPassword"  %>
+	</div>
+	<div class="control-group">
+	  <%= f.label :password_confirmation, "Confirm password", :class => "control-label", :for =>"inputPasswordConfirmation" %>
+	  <%= f.password_field :password_confirmation, :class => "controls", :id => "inputPasswordConfirmation"  %>
+	</div>
+
 
   <br />
   <p>Fill additional info and end we will provide even better service for you:</p>
