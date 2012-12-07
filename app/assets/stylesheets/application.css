@@ -78,6 +78,15 @@ textarea {
 .form_info_text {
 	margin: 0 0 0 118px;
 	font-size: 14px;
+
+.tsl{
+  margin-top: 1%;
+  margin-bottom: 1.5%;
+}
+
+.icon{
+	max-width: 20%;
+	padding-top: 8%;
 }
 
 /*.wrapper {

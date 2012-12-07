@@ -21,7 +21,7 @@
 			<h3>Are you a Client?</h3>
 			<p><%= image_tag "owner.jpg", :class => "img-rounded", :alt => "flower shop owner" %></p>
 			<p>Are you a small business owner, looking for someone to help you with your webpage? Or a project manager in a big company and need help with prototyping?</p>
-			<%= button_to 'Sign-up Client', new_client_url, :method => "get", :class => "btn btn-large btn-block btn-primary" %>
+			<%= button_to 'Sign-up Client', coming_soon_url, :method => "get", :class => "btn btn-large btn-block btn-primary" %>
 		</div>
 		<div class="span6">
 				<h3>Are you a Starter?</h3>
@@ -31,20 +31,22 @@
 		</div>
 	</div>
 
-	<p class="center"><%= image_tag "TSL_logo.png", :class => "inset", :alt => "Starter League logo"%> </p>
-	<h3 class="center">What Starters can do for Clients</h3>
+	<div class="tsl">
+		<p class="center"><%= image_tag "TSL_logo.png", :class => "inset", :alt => "Starter League logo"%> </p>
+		<h3 class="center">What Starters can do for Clients</h3>
+	</div>
 	<div class="row">
-	  	<div class="span4">
+	  	<div class="tsl span4">
 	  		<h4>Web Development</h4>
 	  		<p><small>Build great database-backed, dynamic web applications with Ruby on Rails – used by top websites like Twitter. Integrate content from other sources, such as Facebook and Google. Create an e-commerce site or a custom Content Management System.</small>
 			</p>
 	  	</div>
-	  	<div class="span4">
+	  	<div class="tsl span4">
 	  		<h4>Web Design</h4>
 	  		<p><small>Design the front-end of a fundamentally sound website with fully functional HTML and CSS. Bring sites to life with exciting text, images, audio and video. Advanced designers integrate the latest elements and styles available with HTML5 and CSS3.</small>
 			</p>
 	  	</div>
-	  	<div class="span4">
+	  	<div class="tsl span4">
 	  		<h4>User Experience</h4>
 	  		<p><small>Implement best practices for website usability and aesthetics. Make decisions based on vaildated research. Create engaging, user-centered products that viewers will be motivated to interact with.</small>
 			</p>
