@@ -58,28 +58,68 @@
     </div>    
   </div>
 
-<!--   <div class="navbar">
+  <div class="navbar">
     <div class="navbar-inner">
       <div class="container"> 
-   -->
+  
         <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-<!--         <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
-        </a> -->
+        </a>
    
         <!-- Be sure to leave the brand out there if you want it shown -->
-        <!-- <a class="brand" href="#">Project name</a> -->
+        <a class="brand" href="#">Project name</a>
    
         <!-- Everything you want hidden at 940px or less, place within here -->
-        <!-- <div class="nav-collapse collapse"> -->
+        <div class="nav-collapse collapse">
           <!-- .nav, .navbar-search, .navbar-form, etc -->
-        <!-- </div> -->
+          
+          <% if client_logged_in?  %>
+              <% if @client.projects.any? %>
+                <li><%= link_to "Projects", client_projects_url(@client) %></li>
+              <% else %>
+                <li><%= link_to "Add New Project", new_client_project_url(@client) %></li>
+              <% end  %>
+            <li><%= link_to "My Profile", client_url(@client) %></li>
+          <% end  %>
+          <% if starter_logged_in?  %>
+              <li><%= link_to "Projects ", starter_projects_url(@starter) %></li>
+            <li><%= link_to "My Profile", starter_url(@starter) %></li>
+          <% end  %>
+                
+          <!-- Sign Out Links -->
+          <% if client_logged_in?  %> 
+            <li><%= link_to 'Sign out', signout_url %></li>
+            <li class="nav-unlinked">|</li>
+          <% end %>
+          <% if starter_logged_in?  %>  
+            <li><%= link_to 'Sign out', signout_url %></li>
+            <li class="nav-unlinked">|</li>
+          <% end %>
+          
+          <!-- General Top Navigation Links -->
+          <li><%= link_to "How it Works ", how_it_works_url %></li>
+              <li><%= link_to "Our Team", our_team_url %></li>
+          
+          <!-- Top navigation Sign In Links -->
+          <% if !client_logged_in? && !starter_logged_in? %>
+              <!-- <li class="nav-unlinked">Sign in:</li> --> 
+                    <li><%= link_to 'Sign In', signin_url %></li>
+              <li class="nav-unlinked">or</li>
+              <li><%= link_to 'Sign Up', "#"%></li>
+              <% end %>
+
+            </ul>
+          </div> 
+        </div>    
+      </div>
+      </div>
    
-      <!-- </div> -->
-    <!-- </div> -->
-  <!-- </div> -->	
+      </div>
+    </div>
+  </div>	
 
   <div class="container">
     

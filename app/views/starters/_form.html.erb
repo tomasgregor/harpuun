@@ -24,10 +24,6 @@
     <%= f.text_field :email, :class => "controls", :id => "inputEmail"  %>
   </div>
   <div class="control-group">
-    <%= f.label :twitter, :class => "control-label", :for =>"inputTwitter" %>
-    <%= f.text_field :twitter, :class => "controls", :id => "inputTwitter" %>
-  </div>
-  <div class="control-group">
     <%= f.label :avatar, "Your photo", :class => "control-label", :for =>"inputPictureFile" %>
     <%= f.file_field :avatar, :class => "controls", :id => "inputPictureFile" %>
   </div>
@@ -39,6 +35,62 @@
     <%= f.label :password_confirmation, :class => "control-label", :for =>"inputPasswordConfirmation" %>
     <%= f.password_field :password_confirmation, :class => "controls", :id => "inputPasswordConfirmation"  %>
   </div>
+
+<% if session[:starter_id] != nil %>  
+  <div class="control-group">
+    <%= f.label :year, :class => "control-label", :for =>"inputYear" %>
+    <%= f.text_field :year, :class => "controls", :id => "inputYear"  %>
+  </div>
+  <div class="control-group">
+    <%= f.label :quarter, :class => "control-label", :for =>"inputQuarter" %>
+    <%= f.text_field :quarter, :class => "controls", :id => "inputQuarter"  %>
+  </div>
+  <div class="control-group">
+    <%= f.label :class_id1, :class => "control-label", :for =>"inputClassID1" %>
+    <%= f.text_field :class_id1, :class => "controls", :id => "inputClassID1"  %>
+  </div>
+  <div class="control-group">
+    <%= f.label :class_id2, :class => "control-label", :for =>"inputClassID2" %>
+    <%= f.text_field :class_id2, :class => "controls", :id => "inputClassID2"  %>
+  </div>
+  <div class="control-group">
+    <%= f.label :class_id3, :class => "control-label", :for =>"inputClassID3" %>
+    <%= f.text_field :class_id3, :class => "controls", :id => "inputClassID3"  %>
+  </div>    
+  <div class="control-group">
+    <%= f.label :skill_id1, :class => "control-label", :for =>"inputSkillID1" %>
+    <%= f.text_field :skill_id1, :class => "controls", :id => "inputSkillID1"  %>
+  </div>    
+  <div class="control-group">
+    <%= f.label :skill_id2, :class => "control-label", :for =>"inputSkillID2" %>
+    <%= f.text_field :skill_id2, :class => "controls", :id => "inputSkillID2"  %>
+  </div>    
+  <div class="control-group">
+    <%= f.label :skill_id3, :class => "control-label", :for =>"inputSkillID3" %>
+    <%= f.text_field :skill_id3, :class => "controls", :id => "inputSkillID3"  %>
+  </div>    
+
+<% end %>
+<!-- <p>
+  <b>Quarter:</b>
+  <%= @starter.quarter %>
+</p>
+
+<p>
+  <b>Classes Enrolled or Completed:</b>
+  <%= @starter.class_id1 %>
+  <%= @starter.class_id2 %>
+  <%= @starter.class_id3 %>
+</p>
+
+<p>
+  <b>Skills</b>
+  <%= @starter.skill_id1 %>
+  <%= @starter.skill_id2 %>
+  <%= @starter.skill_id3 %>
+</p> -->
+
+
   <div class="control-group">
     <%= f.submit :class => "btn btn-large btn-primary btn-signup" %>
   </div>
