@@ -9,59 +9,50 @@
 </head>
 <body>
 
-<div class="navbar">
-  <div class="navbar-inner">
-    <div class="container">
- 
-      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </a>
- 
-      <!-- Be sure to leave the brand out there if you want it shown -->
-      <%= link_to( image_tag("harpuunlogo.png", :width => "200"), 'home', :class => 'brand' ) %>
-      <!-- Everything you want hidden at 940px or less, place within here -->
-      <div class="nav-collapse collapse">
-        <!-- .nav, .navbar-search, .navbar-form, etc -->
-        <ul class="nav">
+  <div class="container">
+    <div class="navbar">
+      <div class="navbar-inner">
+        <ul class="nav" id="menu">
 
-            <!-- Top navigation links for logged_in Client -->
-            <% if client_logged_in?  %>
-              <% if @client.projects.any? %>
-              <li><%= link_to "Projects", client_projects_url(@client) %></li>
-              <% else %>
-              <li><%= link_to "Add New Project", new_client_project_url(@client) %></li>
-              <% end  %>
-              <li><%= link_to "My Profile", client_url(@client) %></li>
-            <% end  %>
-            
-            <!-- Top navigation links for logged_in Starter -->
-            <% if starter_logged_in?  %>
-              <li><%= link_to "Projects ", starter_projects_url(@starter) %></li>
-              <li><%= link_to "My Profile", starter_url(@starter) %></li>
-            <% end  %>
-            
-            <!-- Sign Out Links -->
-            <% if client_logged_in?  %> 
-              <li><%= link_to 'Sign out', signout_url %></li>
-              <li class="nav-unlinked">|</li>
-            <% end %>
-            <% if starter_logged_in?  %>  
-              <li><%= link_to 'Sign out', signout_url %></li>
-              <li class="nav-unlinked">|</li>
-            <% end %>
-            
-            <!-- General Top Navigation Links -->
-              <li><%= link_to "How it Works ", how_it_works_url %></li>
-              <li><%= link_to "Our Team", our_team_url %></li>
-            
-            <!-- Top navigation Sign In Links -->
-            <% if !client_logged_in? && !starter_logged_in? %>
-              <li><%= link_to 'Sign In', signin_url %></li>
-              <li><%= link_to 'Sign Up', "#"%></li>
-            <% end %>
+  	      	<li class="navbar-logo"><%= link_to( image_tag("harpuunlogo.png", :width => "200"), root_url ) %></li>
+				
+			<!-- Top navigation links for logged_in Client -->
+			<% if client_logged_in?  %>
+  				<% if @client.projects.any? && @project.name.present? %>
+	  				<li><%= link_to "Projects", client_projects_url(@client) %></li>
+	  			<% else %>
+	  				<li><%= link_to "Add Project", new_client_project_url(@client) %></li>
+	  			<% end  %>
+				<li><%= link_to "My Profile", client_url(@client) %></li>
+ 			<% end  %>
+			
+			<!-- Top navigation links for logged_in Starter -->
+			<% if starter_logged_in?  %>
+  				<li><%= link_to "Projects ", starter_projects_url(@starter) %></li>
+				<li><%= link_to "My Profile", starter_url(@starter) %></li>
+ 			<% end  %>
+			
+			<!-- Sign Out Links -->
+			<% if client_logged_in?  %>	
+				<li><%= link_to 'Sign out', signout_url %></li>
+        		<li class="nav-unlinked">|</li>
+			<% end %>
+			<% if starter_logged_in?  %>	
+				<li><%= link_to 'Sign out', signout_url %></li>
+        		<li class="nav-unlinked">|</li>
+			<% end %>
+			
+			<!-- General Top Navigation Links -->
+			<li><%= link_to "How it Works ", how_it_works_url %></li>
+	        <li><%= link_to "Our Team", our_team_url %></li>
+			
+			<!-- Top navigation Sign In Links -->
+			<% if !client_logged_in? && !starter_logged_in? %>
+	              <li><%= link_to 'Sign In', signin_url %></li>
+				  <li class="nav-unlinked">or</li>
+				  <li><%= link_to 'Sign Up', "#"%></li>
+	        <% end %>
+
 
         </ul>
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121205230312) do
+ActiveRecord::Schema.define(:version => 20121207230406) do
 
   create_table "clients", :force => true do |t|
     t.string   "first_name"
@@ -64,13 +64,14 @@ ActiveRecord::Schema.define(:version => 20121205230312) do
     t.integer  "skill_id2"
     t.integer  "skill_id3"
     t.integer  "year"
-    t.integer  "quarter"
+    t.string   "quarter"
     t.integer  "class_id1"
     t.integer  "class_id2"
     t.integer  "class_id3"
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
+    t.datetime "created_at",                         :null => false
+    t.datetime "updated_at",                         :null => false
     t.string   "twitter"
+    t.boolean  "admin",           :default => false
   end
 
 end

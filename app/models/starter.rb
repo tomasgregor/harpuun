@@ -9,7 +9,7 @@ class Starter < ActiveRecord::Base
             :uniqueness => true,
             :email_format => true
   
-  validates :password, :length => { :in => 6..20 }
+  # validates :password, :length => { :in => 6..20 }
 
   has_secure_password
   mount_uploader :avatar, ImageUploader

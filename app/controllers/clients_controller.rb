@@ -2,7 +2,8 @@ class ClientsController < ApplicationController
 
   # before_filter :authenticate_client!, :except => [:index, :new, :create]
 
-  before_filter :require_client, :except => [:index, :new, :create]
+  before_filter :require_client, :only => [ :show, :edit, :update, :destroy]
+  before_filter :require_admin, :only => :index
   
   def require_client
     if current_client.nil? || current_client.id != params[:id].to_i

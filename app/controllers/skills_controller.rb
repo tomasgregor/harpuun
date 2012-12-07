@@ -1,4 +1,7 @@
 class SkillsController < ApplicationController
+
+  before_filter :require_admin
+
   # GET /skills
   # GET /skills.json
   def index
