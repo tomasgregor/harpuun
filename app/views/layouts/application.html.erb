@@ -36,11 +36,11 @@
 			<!-- Sign Out Links -->
 			<% if client_logged_in?  %>	
 				<li><%= link_to 'Sign out', signout_url %></li>
-        <li class="nav-unlinked">|</li>
+        		<li class="nav-unlinked">|</li>
 			<% end %>
 			<% if starter_logged_in?  %>	
 				<li><%= link_to 'Sign out', signout_url %></li>
-        <li class="nav-unlinked">|</li>
+        		<li class="nav-unlinked">|</li>
 			<% end %>
 			
 			<!-- General Top Navigation Links -->
@@ -49,7 +49,6 @@
 			
 			<!-- Top navigation Sign In Links -->
 			<% if !client_logged_in? && !starter_logged_in? %>
-				  <!-- <li class="nav-unlinked">Sign in:</li> -->	
 	              <li><%= link_to 'Sign In', signin_url %></li>
 				  <li class="nav-unlinked">or</li>
 				  <li><%= link_to 'Sign Up', "#"%></li>

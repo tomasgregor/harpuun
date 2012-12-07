@@ -15,5 +15,12 @@ class ApplicationController < ActionController::Base
   def offered_project
     @offered_project ||= Project.find_by_offered_to(current_starter.id)
   end
+  
+  def require_admin
+    if current_starter.nil? || current_starter.admin = false
+      redirect_to root_url, :notice => "You're not authorized to see this page"
+      return
+    end   
+  end
 
 end
