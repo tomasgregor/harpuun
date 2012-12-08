@@ -19,7 +19,7 @@
 
 <% @starters.each do |starter| %>
   <tr>
-    <td><%= image_tag starter.avatar_url(:thumb).to_s %></td>
+    <td><%= image_tag starter.avatar_url(:thumb).to_s, :class => 'rounded' %></td>
     <td><%= starter.first_name %></td>
     <td><%= starter.last_name %></td>
     <td><%= starter.email %></td>
