@@ -19,7 +19,7 @@
 
 <% @starters.each do |starter| %>
   <tr>
-    <td><%= image_tag starter.avatar_url(:thumb) %></td>
+    <td><%= image_tag starter.avatar_url :thumb %></td>
     <td><%= starter.first_name %></td>
     <td><%= starter.last_name %></td>
     <td><%= starter.email %></td>
@@ -28,27 +28,15 @@
     <td><%= starter.quarter %></td>
 
 	<td>
-		<% if Skill.find_by_id(starter.skill_id1).present? %>
-			<%= Skill.find_by_id(starter.skill_id1).name %>
-		<% else %>
-			<%= "nil" %>
-		<% end %>
+		<%= starter.skill_id1 %>
 	</td>
 
 	<td>
-		<% if Skill.find_by_id(starter.skill_id2).present? %>
-			<%= Skill.find_by_id(starter.skill_id2).name %>
-		<% else %>
-			<%= "nil" %>
-		<% end %>
+		<%= starter.skill_id2 %>
 	</td>
 
 	<td>
-		<% if Skill.find_by_id(starter.skill_id3).present? %>
-			<%= Skill.find_by_id(starter.skill_id3).name %>
-		<% else %>
-			<%= "nil" %>
-		<% end %>
+		<%= starter.skill_id3 %>
 	</td>
 
     <td><%= link_to 'View', starter %></td>
