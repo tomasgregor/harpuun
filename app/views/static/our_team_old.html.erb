@@ -29,8 +29,23 @@
 					<p><small>Originally from Chicago's North Shore, now living in the Lakeview East neighborhood. Graduated with a BFA in Graphic Design from Columbia College Chicago. Currently a graphic designer at the Chicago Sun-Times. Lays out print special sections and ToDrive, the Sun-Times' auto section, online editor of todrive.com. An Advanced HTML and CSS student at the Starter League, will be taking User Experience in the winter quarter. Enjoys distance running and skiing.</small></p>
 				  </div>
 				</div>
-			 
+			    <div class="row">
+				  <div class="span12">
+					<div class="form">
+						<h3>Contact Us</h3>
+						<%= form_tag "/sessions/create" do %>
+						  <%= label_tag :name, "Name:" %>
+						  <%= text_field_tag :name %>
+						  <%= label_tag :email, "Email:" %>
+						  <%= text_field_tag :email %>
+						  <%= label_tag :mesage, "Message:" %>
+						  <%= text_area_tag :message, nil, :rows => 5 %></br>
+						  <%= submit_tag "Submit", :class => "btn btn-large btn-primary"%>
+						<% end %>
+					</div>
+				  </div>	
+				</div>
 			</div>
 		</div>	
 	</div>
-</div>		
+</div>
