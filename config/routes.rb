@@ -16,10 +16,9 @@ Harpuun::Application.routes.draw do
   resources :skills
   
   # Routes for static pages
-  get '/home' => 'static#home'
-  get '/how_it_works' => 'static#how_it_works'
-  get '/our_team' => 'static#our_team'
-  get '/coming_soon' => 'static#coming_soon'
+  get '/how_it_works' => 'static#how_it_works', :as => 'how'
+  get '/our_team' => 'static#our_team', :as => 'team'
+  get '/coming_soon' => 'static#coming_soon', :as => 'coming_soon'
   
   #  Routes for sessions
   get '/signin' => 'sessions#new', :as => 'signin'
