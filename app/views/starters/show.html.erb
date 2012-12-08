@@ -6,6 +6,15 @@
     </p>
   </div>
 
+  <div class="span12">
+    <p>
+		<% if @starter.admin == true %>
+	      ADMIN
+		<% end %>
+    </p>
+  </div>
+
+
   <div class="span12">    
     <p>
       <%= @starter.first_name %> <%= @starter.last_name %>
@@ -16,7 +25,15 @@
     <p>
       <%= @starter.email %>
     </p>
-  </div> 
+  </div>
+
+  <div class="span12">
+    <p>
+		<% if @starter.twitter.present? %>
+	      <%= @starter.twitter %>
+		<% end %>
+    </p>
+  </div>
 
   <div class="span12">
     <h4>Year:</h4>
