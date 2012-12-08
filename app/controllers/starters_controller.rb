@@ -25,6 +25,10 @@ class StartersController < ApplicationController
   # GET /starters/1.json
   def show
     @starter = current_starter
+    
+    @skill1 = Skill.find_by_id(@starter.skill_id1)
+    @skill2 = Skill.find_by_id(@starter.skill_id2)
+    @skill3 = Skill.find_by_id(@starter.skill_id3)
 
     respond_to do |format|
       format.html # show.html.erb

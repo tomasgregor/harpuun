@@ -37,10 +37,16 @@
     </h4>
   </div>  
   <div class="span12"> 
-    <p>  
+    <p>
+	<% if @skill1.present? %>
       <%= Skill.find_by_id(@starter.skill_id1).name %>
-      <%= Skill.find_by_id(@starter.skill_id2).name %>
-      <%= Skill.find_by_id(@starter.skill_id3).name %>
+	<% end %>
+	<% if @skill2.present? %>
+      <%= Skill.find_by_id(@starter.skill_id1).name %>
+	<% end %>
+	<% if @skill3.present? %>
+      <%= Skill.find_by_id(@starter.skill_id1).name %>
+	<% end %>
     </p>
   </div> 
 </div>
