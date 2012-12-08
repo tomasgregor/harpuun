@@ -15,27 +15,16 @@ Harpuun::Application.routes.draw do
   
   resources :skills
   
-
-  
-  #  Routes for sessions
-  get '/signin' => 'sessions#new', :as => 'signin'
-  get '/signout' => 'sessions#destroy', :as => 'signout'
-  post '/session' => 'sessions#create'
-
-  
-  get '/client_signin' => 'client_sessions#new', :as => 'signin_client'
-  get '/client_signout' => 'client_sessions#destroy', :as => 'signout_client'
-  post '/client_session' => 'client_sessions#create'
-  
-  get '/starter_signin' => 'starter_sessions#new', :as => 'signin_starter'
-  get '/starter_signout' => 'starter_sessions#destroy', :as => 'signout_starter'
-  post '/starter_session' => 'starter_sessions#create'
-  
   # Routes for static pages
   get '/home' => 'static#home'
   get '/how_it_works' => 'static#how_it_works'
   get '/our_team' => 'static#our_team'
   get '/coming_soon' => 'static#coming_soon'
+  
+  #  Routes for sessions
+  get '/signin' => 'sessions#new', :as => 'signin'
+  get '/signout' => 'sessions#destroy', :as => 'signout'
+  post '/session' => 'sessions#create'
   
   # Routes for mockups
   get "/mockups/client_signup" => 'mockups#client_signup'
