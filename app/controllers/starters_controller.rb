@@ -24,7 +24,7 @@ class StartersController < ApplicationController
   # GET /starters/1
   # GET /starters/1.json
   def show
-    @starter = Starter.find(params[:id])
+    @starter = current_starter
 
     respond_to do |format|
       format.html # show.html.erb
@@ -56,7 +56,7 @@ class StartersController < ApplicationController
     respond_to do |format|
       if @starter.save
         session[:starter_id] = @starter.id
-        SignUpMailer.confirm(@starter).deliver
+        # SignUpMailer.confirm(@starter).deliver
         format.html { redirect_to @starter, notice: 'Starter was successfully created.' }
         format.json { render json: @starter, status: :created, location: @starter }
       else
