@@ -39,17 +39,16 @@
   <div class="span12"> 
     <p>
 	<% if @skill1.present? %>
-      <%= Skill.find_by_id(@starter.skill_id1).name %>
+      <%= @skill1.name %>
 	<% end %>
 	<% if @skill2.present? %>
-      <%= Skill.find_by_id(@starter.skill_id1).name %>
+      <%= @skill2.name %>
 	<% end %>
 	<% if @skill3.present? %>
-      <%= Skill.find_by_id(@starter.skill_id1).name %>
+      <%= @skill3.name %>
 	<% end %>
     </p>
   </div> 
 </div>
 
-<%= link_to 'Edit', edit_starter_path(@starter) %> |
-<%= link_to 'Back', starters_path %>
+<%= link_to 'Edit', edit_starter_path(@starter) %>

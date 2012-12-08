@@ -49,7 +49,7 @@ class StartersController < ApplicationController
 
   # GET /starters/1/edit
   def edit
-    @starter = Starter.find(params[:id])
+    @starter = current_starter
   end
 
   # POST /starters
@@ -73,7 +73,7 @@ class StartersController < ApplicationController
   # PUT /starters/1
   # PUT /starters/1.json
   def update
-    @starter = Starter.find(params[:id])
+    @starter = current_starter
 
     respond_to do |format|
       if @starter.update_attributes(params[:starter])
@@ -89,7 +89,7 @@ class StartersController < ApplicationController
   # DELETE /starters/1
   # DELETE /starters/1.json
   def destroy
-    @starter = Starter.find(params[:id])
+    @starter = current_starter
     @starter.destroy
 
     respond_to do |format|
