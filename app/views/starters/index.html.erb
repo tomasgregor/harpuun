@@ -6,8 +6,12 @@
     <th>First name</th>
     <th>Last name</th>
     <th>Email</th>
+	<th>Twitter</th>
     <th>Year</th>
     <th>Quarter</th>
+    <th>Skill1</th>
+    <th>Skill2</th>
+    <th>Skill3</th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,13 +19,39 @@
 
 <% @starters.each do |starter| %>
   <tr>
-    <td><%= starter.avatar %></td>
+    <td><%= image_tag starter.avatar_url(:thumb) %></td>
     <td><%= starter.first_name %></td>
     <td><%= starter.last_name %></td>
     <td><%= starter.email %></td>
+	<td><%= starter.twitter %></td>
     <td><%= starter.year %></td>
     <td><%= starter.quarter %></td>
-    <td><%= link_to 'View Profile', starter %></td>
+
+	<td>
+		<% if Skill.find_by_id(starter.skill_id1).present? %>
+			<%= Skill.find_by_id(starter.skill_id1).name %>
+		<% else %>
+			<%= "nil" %>
+		<% end %>
+	</td>
+
+	<td>
+		<% if Skill.find_by_id(starter.skill_id2).present? %>
+			<%= Skill.find_by_id(starter.skill_id2).name %>
+		<% else %>
+			<%= "nil" %>
+		<% end %>
+	</td>
+
+	<td>
+		<% if Skill.find_by_id(starter.skill_id3).present? %>
+			<%= Skill.find_by_id(starter.skill_id3).name %>
+		<% else %>
+			<%= "nil" %>
+		<% end %>
+	</td>
+
+    <td><%= link_to 'View', starter %></td>
     <td><%= link_to 'Edit', edit_starter_path(starter) %></td>
     <td><%= link_to 'Delete', starter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
@@ -29,5 +59,3 @@
 </table>
 
 <br />
-
-<%= link_to 'New Starter', new_starter_path %>

@@ -2,7 +2,7 @@ class StartersController < ApplicationController
   # GET /starters
   # GET /starters.json
   
-  before_filter :require_starter, :only => [ :show, :edit, :update, :destroy]
+  before_filter :require_starter, :only => [ :show, :edit, :update, :destroy ]
   before_filter :require_admin, :only => :index
   
   def require_starter

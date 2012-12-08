@@ -17,10 +17,14 @@ class ApplicationController < ActionController::Base
   end
   
   def require_admin
-    if current_starter.nil? || current_starter.admin = false
+    if current_starter.blank?
       redirect_to root_url, :notice => "You're not authorized to see this page"
       return
-    end   
+    elsif
+      current_starter.admin != true
+      redirect_to root_url, :notice => "You're not authorized to see this page"
+      return
+    end
   end
 
 end
