@@ -10,7 +10,8 @@ class Client < ActiveRecord::Base
             :uniqueness => true,
             :email_format => true
   
-  validates :password, :length => { :in => 6..20 }
+  # Validation below makes app require password on profile update. We can delete it or figure out how to do it some other way
+  # validates :password, :length => { :in => 6..20 }
   
   has_secure_password
   mount_uploader :avatar, ImageUploader
