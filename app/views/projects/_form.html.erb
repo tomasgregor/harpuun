@@ -15,19 +15,23 @@
     <%= f.text_field :name, :class => "controls", :id => "inputName" %>
   </div>
   <div class="control-group">
+	<p class="form_info_text">Describe the projects in a way which makes it understandable what result you want to see at the end.</p>
     <%= f.label :description, :class => "control-label", :for =>"inputDescription" %>
     <%= f.text_area :description, :rows => 5, :class => "controls", :id => "inputDescription" %>
   </div>
 
   <div class="control-group">
-    <%= f.label :url, "Project related URL", :class => "control-label", :for =>"inputUrl" %>
+    <%= f.label :url, "Project URL", :class => "control-label", :for =>"inputUrl" %>
     <%= f.text_field :url, :class => "controls", :id => "inputUrl" %>
   </div>
   <div class="control-group">
+	<p class="form_info_text">Write what you want to offer for project completition. It can be money, your products or services, promotion of the starter, ...</p>
+	
     <%= f.label :reward, :class => "control-label", :for =>"inputReward" %>
     <%= f.text_field :reward, :class => "controls", :id => "inputReward" %>
   </div>
   <div class="control-group">
+	<p class="form_info_text">Is timeframe of the project important? Write it.</p>
     <%= f.label :deadline, :class => "control-label", :for =>"inputDeadline" %>
     <%= f.text_field :deadline, :class => "controls", :id => "inputDeadline" %>
   </div>
