@@ -3,6 +3,8 @@ class Starter < ActiveRecord::Base
   
   has_one :actual_project, :class_name => "Project", :foreign_key => "actual_starter_id_by"
   has_many :completed_projects, :class_name => "Project", :foreign_key => "completer_id"
+  has_many :accepted_offers, :class_name => "Offer", :foreign_key => "accepted_by"
+  has_many :accepted_projects, :through => :offers, :foreign_key => "accepted_by"
   
   validates :first_name, :length => { :minimum => 2 }
   validates :last_name, :length => { :minimum => 2 }
