@@ -1,9 +1,9 @@
 class Project < ActiveRecord::Base
-  attr_accessible :client_id, :deadline, :description, :name, :reward, :skill_id1, :skill_id2, :skill_id3, :url, :completed_by, :accepted_by
+  attr_accessible :client_id, :deadline, :description, :name, :reward, :skill_id1, :skill_id2, :skill_id3, :url, :completer_id, :actual_starter_id
   
   belongs_to :client
-  belongs_to :actual_starter, :class_name => "Starter", :foreign_key => "accepted_by"
-  belongs_to :completer, :class_name => "Starter", :foreign_key => "completed_by"
+  belongs_to :actual_starter, :class_name => "Starter", :foreign_key => "actual_starter_id"
+  belongs_to :completer, :class_name => "Starter", :foreign_key => "completer_id"
   has_many :offers
   
   validates :name, :length => { :in => 2..50 }
