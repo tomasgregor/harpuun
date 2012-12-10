@@ -1,5 +1,9 @@
 <div class="indented hero-unit">
-	<legend>New Project</legend>
+	<% if @client.projects.count == 0 %>
+		<legend>Add Your First Project</legend>
+	<% else  %>
+		<legend>New Project</legend>
+	<% end  %>
 	<%= image_tag "whale_harp.png", :class => "signup-whale", :alt => "harpuun whale" %>
 	<%= render 'form' %>
 </div>

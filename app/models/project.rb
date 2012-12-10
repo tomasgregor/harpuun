@@ -4,6 +4,9 @@ class Project < ActiveRecord::Base
   belongs_to :client
   has_many :offers
   
+  validates :name, :length => { :in => 2..50 }
+  validates :description, :length => { :in => 20..2000 }
+  
   after_save :offer_project_to_starter, :add_offer_to_history_list
   
   

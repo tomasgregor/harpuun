@@ -32,10 +32,10 @@
 
             <!-- Top navigation links for logged_in Client -->
             <% if client_logged_in?  %>
-              <% if @client.projects.any? %>
-              <li><%= link_to "Projects", client_projects_url(@client) %></li>
+              <% if @client.projects.count == 0 %>
+				<li><%= link_to "Add First Project", new_client_project_url(@client) %></li>
               <% else %>
-              <li><%= link_to "Add New Project", new_client_project_url(@client) %></li>
+              	<li><%= link_to "Projects", client_projects_url(@client) %></li>
               <% end  %>
               <li><%= link_to "My Profile", client_url(@client) %></li>
             <% end  %>
