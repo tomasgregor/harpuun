@@ -25,7 +25,7 @@
     <%= f.text_field :url, :class => "controls", :id => "inputUrl" %>
   </div>
   <div class="control-group">
-	<p class="form_info_text">Write what you want to offer for project completition. It can be money, your products or services, promotion of the starter, ...</p>
+	<p class="form_info_text">Write what you want to offer to a Starter for a project completition. It can be money, your products or services, promotion or employment of the starter, ...</p>
 	
     <%= f.label :reward, :class => "control-label", :for =>"inputReward" %>
     <%= f.text_field :reward, :class => "controls", :id => "inputReward" %>
@@ -37,7 +37,7 @@
   </div>
   
   <div class="form-inline">
-	<p class="form_info_text">If you know what type of skills your project requires, please, select them in order of importance. You can select just 1.</p>
+	<p class="form_info_text">If you know what type of skills your project requires, select them in order of importance. You can select just 1.</p>
 	<%= f.label :skillset, "Required skills", :class => "control-label" %>
   	<% 3.times do |n| %>
 	    <%= f.collection_select "skill_id#{n+1}", Skill.all, :id, :name, {:prompt => "Select #{n+1}"}, :class => "input-small" %>

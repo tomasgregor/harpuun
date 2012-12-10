@@ -1,6 +1,7 @@
-<h1>Editing project</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', client_project_url(@client, @project) %> |
-<%= link_to 'Back', client_projects_url(@client) %>
+<div class="indented hero-unit">
+	<legend>Update Project</legend>
+	<%= image_tag "whale_harp.png", :class => "signup-whale", :alt => "harpuun whale" %>
+	<%= render 'form' %>
+	<%= link_to 'Show', client_project_url(@client, @project) %> |
+	<%= link_to 'Back', client_projects_url(@client) %>
+</div>

@@ -49,11 +49,9 @@
             <!-- Sign Out Links -->
             <% if client_logged_in?  %> 
               <li><%= link_to 'Sign out', signout_url %></li>
-              <li class="nav-unlinked">|</li>
             <% end %>
             <% if starter_logged_in?  %>  
               <li><%= link_to 'Sign out', signout_url %></li>
-              <li class="nav-unlinked">|</li>
             <% end %>
             
             <!-- General Top Navigation Links -->
