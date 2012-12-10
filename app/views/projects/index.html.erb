@@ -1,41 +1,52 @@
+<% if @actual_projects.any?  %>
+	<h3>Projects accepted by starters</h3>
+
+	<table>
+	<% @actual_projects.each do |project| %>
+	  <tr>
+	    <td><%= project.name %></td>
+	    <td><%= project.description %></td>
+	    <td><%= link_to 'Show', client_project_path(@client, project) %></td>
+	    <td><%= link_to 'Edit', edit_client_project_path(@client, project) %></td>
+	  </tr>
+	<% end %>
+	</table>
+	<br />
+<% end  %>
+
+
+<% if @offered_projects.any?  %>
+	<h3>Projects offered to starters</h3>
+
+	<table>
+	<% @offered_projects.each do |project| %>
+	  <tr>
+	    <td><%= project.name %></td>
+	    <td><%= project.description %></td>
+	    <td><%= link_to 'Show', client_project_path(@client, project) %></td>
+	    <td><%= link_to 'Edit', edit_client_project_path(@client, project) %></td>
+	  </tr>
+	<% end %>
+	</table>
+	<br />
+<% end  %>
+
 <%= button_to 'Add New Project', new_client_project_url(@client), :method => "get", :class => "btn btn-large btn-primary" %>
+<br />
 
+<% if @completed_projects.any?  %>
+	<h3>Completed projects</h3>
 
-<h1>Listing projects</h1>
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Description</th>
-    <th>Url</th>
-    <th>Reward</th>
-    <th>Deadline</th>
-    <th>Skill id1</th>
-    <th>Skill id2</th>
-    <th>Skill id3</th>
-	<th>Offered to</th>
-	<th>Accepted by</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @projects.each do |project| %>
-  <tr>
-    <td><%= project.name %></td>
-    <td><%= project.description %></td>
-    <td><%= project.url %></td>
-    <td><%= project.reward %></td>
-    <td><%= project.deadline %></td>
-    <td><%= project.skill_id1 %></td>
-    <td><%= project.skill_id2 %></td>
-    <td><%= project.skill_id3 %></td>
-    <td><%= project.offered_to %></td>
-    <td><%= project.accepted_by %></td>
-    <td><%= link_to 'Show', client_project_path(@client, project) %></td>
-    <td><%= link_to 'Edit', edit_client_project_path(@client, project) %></td>
-    <td><%= link_to 'Destroy', client_project_url(@client, project), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+	<table>
+	<% @completed_projects.each do |project| %>
+	  <tr>
+	    <td><%= project.name %></td>
+	    <td><%= project.description %></td>
+	    <td><%= link_to 'Show', client_project_path(@client, project) %></td>
+	    <td><%= link_to 'Edit', edit_client_project_path(@client, project) %></td>
+	  </tr>
+	<% end %>
+	</table>
+	<br />
+<% end  %>
 

@@ -15,7 +15,10 @@ class ProjectsController < ApplicationController
   def index
     @client = current_client
     @projects = @client.projects
-
+    @actual_projects = @client.projects.where("actual_starter_id IS NOT NULL")
+    @offered_projects = @client.projects.where("actual_starter_id IS NULL and completer_id IS NULL")
+    @completed_projects = @client.projects.where("completer_id IS NOT NULL")
+    
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @projects }
