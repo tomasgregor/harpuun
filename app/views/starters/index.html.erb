@@ -1,7 +1,8 @@
-<h1>The Starters</h1>
-
+<h4>The Starters</h4>
+<br />
 <table>
   <tr>
+    <th>ID</th>
     <th>Avatar</th>
     <th>First name</th>
     <th>Last name</th>
@@ -19,6 +20,7 @@
 
 <% @starters.each do |starter| %>
   <tr>
+	<td><%= starter.id %></td>
     <td><%= image_tag starter.avatar_url(:thumb).to_s, :class => 'rounded' %></td>
     <td><%= starter.first_name %></td>
     <td><%= starter.last_name %></td>
