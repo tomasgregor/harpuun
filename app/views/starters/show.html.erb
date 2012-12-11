@@ -1,71 +1,79 @@
 <div class="row">
   
-  <div class="span12">
-    <p>
-			<%= image_tag @starter.avatar_url(:thumb).to_s, :class => 'rounded' %>
-    </p>
+  <div class="span8">
+      <%= image_tag @starter.avatar_url(:thumb).to_s, :class => 'img-rounded profile-pic' %>
   </div>
 
-  <div class="span12">
-    <p>
-		<% if @starter.admin == true %>
-	      ADMIN
-		<% end %>
-    </p>
+  <% if @starter.twitter.present? %>
+  <div class="span4 progress progress-success progress-striped active">
+    <div class="bar" style="width: 100%;">Profile Complete!</div>
   </div>
-
-
-  <div class="span12">    
-    <p>
-      <%= @starter.first_name %> <%= @starter.last_name %>
-    </p>
-  </div> 
-
-  <div class="span12">
-    <p>
-      <%= @starter.email %>
-    </p>
+  <% else %>
+  <div class="span4 progress progress-striped active">
+    <div class="bar" style="width: 65%;">65% Complete</div>
   </div>
-
-  <div class="span12">
-    <p>
-		<% if @starter.twitter.present? %>
-	      <%= @starter.twitter %>
-		<% end %>
-    </p>
+  <div class="span4">
+    <ul>Achieve 100% Profile Completion by:
+      <li><%= link_to 'Linking your Twitter account', edit_starter_path(@starter)%></li>
+    </ul>
   </div>
+  <% end %>
 
-  <div class="span12">
-    <h4>Year:</h4>
-      <%= @starter.year %>
-    </p>
-  </div> 
+</div>
+<div class="row">
 
-  <div class="span12">
-    <h4>Quarter:</h4>
+  <div class="span4">
+    <% if @starter.admin == true %>
+        ADMIN
+    <% end %>
+    <h1><%= @starter.first_name %> <%= @starter.last_name %></h1>
   </div>
-  <div class="span12">
-      <p><%= @starter.quarter %></p>
-  </div>   
+</div>
 
+<div class="row">
   <div class="span12">
-    <h4>
-      <strong>Skills</strong>
-    </h4>
-  </div>  
-  <div class="span12"> 
-    <p>
-	<% if @skill1.present? %>
-      <%= @skill1.name %>
-	<% end %>
-	<% if @skill2.present? %>
-      <%= @skill2.name %>
-	<% end %>
-	<% if @skill3.present? %>
-      <%= @skill3.name %>
-	<% end %>
-    </p>
+    <h4>Contact Info</h4>    
+    <%= @starter.email %> <i class="icon-envelope"></i>
+  </div>
+</div>  
+
+
+<div class="row">
+  <div class="span12">
+    <h4>Social Media Profiles</h4>
+    <% if @starter.twitter.present? %>
+      <%= link_to "@#{@starter.twitter}", "http://www.twitter.com/#{@starter.twitter}" %>
+    <% else %>
+      
+    <% end %>
   </div> 
 </div>
 
-<%= link_to 'Edit', edit_starter_path(@starter) %>
+<div class="row">
+  <div class="span12">
+    <h4>Cohort</h4>
+      <p><%= @starter.quarter %> <%= @starter.year %></p>
+  </div>   
+</div>
+
+<div class="row">
+  <div class="span12">
+    <h4>Skills</h4> 
+  <% if @skill1.present? %>
+    <p><%= @skill1.name %></p>
+  <% end %>
+  <% if @skill2.present? %>
+    <p><%= @skill2.name %></p>
+  <% end %>
+  <% if @skill3.present? %>
+    <p><%= @skill3.name %></p>
+  <% end %>
+
+  </div> 
+</div>
+
+<div class="row">
+  <div class="span12">
+    <%= link_to 'Edit My Profile', edit_starter_path(@starter) %> <i class="icon-pencil"></i>
+  </div>
+</div>

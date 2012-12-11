@@ -41,9 +41,9 @@
 		<%= starter.skill_id3 %>
 	</td>
 
-    <td><%= link_to 'View', starter %></td>
-    <td><%= link_to 'Edit', edit_starter_path(starter) %></td>
-    <td><%= link_to 'Delete', starter, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'View', starter %> <i class="icon-user"></i></td>
+    <td><%= link_to 'Edit', edit_starter_path(starter) %> <i class="icon-pencil"></i></td>
+    <td><%= link_to 'Delete', starter, method: :delete, data: { confirm: 'Are you sure?' } %> <i class="icon-trash"></i></td>
   </tr>
 <% end %>
 </table>

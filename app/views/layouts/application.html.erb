@@ -8,7 +8,8 @@
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Get hooked. Get started. Companies need low-cost, freelance web development and design. Starter League students need to get their portfolios going. Find each other and get to work."/>
-  <link rel="image_src" href="whale_thumb.png"
+  <link rel="image_src" href="whale_thumb.png">
+  <link href='http://fonts.googleapis.com/css?family=Rambla|Gafata' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
@@ -46,7 +47,7 @@
 	            <!-- Top navigation links for logged_in Starter -->
 	            <% if starter_logged_in?  %>
 	              <li><%= link_to "Projects ", starter_projects_url(@starter) %></li>
-	              <li><%= link_to "My Profile", starter_url(@starter) %></li>
+	              <li><%= link_to "My Profile ", starter_url(@starter) %></li>
 	            <% end  %>
           
 	            <!-- General Top Navigation Links -->
