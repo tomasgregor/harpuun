@@ -43,6 +43,14 @@
   <%= @project.skill_id3 %>
 </p>
 
+<% if @project.actual_starter  %>
+	<p>
+	  <b>Starter:</b>
+	  <%= @actual_starter.first_name %> <%= @actual_starter.last_name %>
+	</p>
+	<%= button_to 'Reject Starter', reject_starter_url(@client, @project), :method => "put", :class => "btn btn-small btn-primary" %>
+<% end %>
+
 
 <%= link_to 'Edit', edit_client_project_path(@project) %> |
 <%= link_to 'Back', client_projects_path %>

@@ -23,6 +23,7 @@ class ProjectsController < ApplicationController
   def show
     @client = current_client
     @project = current_client.projects.find(params[:id])
+    @actual_starter = @project.actual_starter
     
     respond_to do |format|
       format.html # show.html.erb
@@ -86,6 +87,17 @@ class ProjectsController < ApplicationController
     end
   end
   
+  def reject_starter
+    @client = current_client
+    @project = Project.find_by_id(params[:id])
+    @actual_starter = @project.actual_starter
+    if @project.update_attributes(actual_starter_id: nil)
+      redirect_to client_project_url(@client, @project)
+    else
+      render 'show'
+    end
+  end
+  
   
 #   Actions for projects related to Starters
   
@@ -130,7 +142,7 @@ class ProjectsController < ApplicationController
     if @project.update_attributes(actual_starter_id: nil)
       redirect_to starter_projects_url(@starter)
     else
-      render 'show_starter_offered'
+      render 'show_starter'
     end
   end
   
