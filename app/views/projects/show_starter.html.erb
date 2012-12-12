@@ -35,7 +35,7 @@
 <% if @project.actual_starter_id == @starter.id  %>
 	<p>
 	  <b>Client:</b>
-	  <%= @client.first_name %> <%= @client.last_name %>
+	  <%= @project_client.first_name %> <%= @project_client.last_name %>
 	</p>
 	<%= button_to 'Reject Project', reject_project_url(@starter, @project), :method => "put", :class => "btn btn-small btn-primary" %>
 <% end %>

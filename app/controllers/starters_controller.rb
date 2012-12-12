@@ -4,13 +4,7 @@ class StartersController < ApplicationController
   
   before_filter :require_starter, :only => [ :show, :edit, :update, :destroy ]
   before_filter :require_admin, :only => :index
-  
-  def require_starter
-    if current_starter.nil? || current_starter.id != params[:id].to_i
-      redirect_to root_url, :notice => "You're not authorized to see this page"
-      return
-    end   
-  end
+  before_filter :logged_in_already?, :only => :new
   
   def index
     @starters = Starter.all
@@ -24,7 +18,7 @@ class StartersController < ApplicationController
   # GET /starters/1
   # GET /starters/1.json
   def show
-    @starter = current_starter
+    # @starter = current_starter
     
     @skill1 = Skill.find_by_id(@starter.skill_id1)
     @skill2 = Skill.find_by_id(@starter.skill_id2)
@@ -49,7 +43,7 @@ class StartersController < ApplicationController
 
   # GET /starters/1/edit
   def edit
-    @starter = current_starter
+    # @starter = current_starter
   end
 
   # POST /starters
@@ -96,4 +90,14 @@ class StartersController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  private
+  
+  def require_starter
+    if current_starter.nil? || current_starter.id != params[:id].to_i
+      redirect_to root_url, :notice => "You're not authorized to see this page"
+      return
+    end
+  end
+  
 end

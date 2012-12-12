@@ -12,17 +12,23 @@ class ApplicationController < ActionController::Base
     @starter ||= Starter.find_by_id(session[:starter_id])
   end
   
-  def offered_project
-    @offered_project ||= Project.find_by_offered_to(current_starter.id)
+  def logged_in_already?
+    if @client
+      redirect_to client_url(@client), :notice => "You're already logged in."
+      return
+    elsif @starter
+      redirect_to starter_url(@starter), :notice => "You're already logged in."
+      return
+    end
   end
-  
+
   def require_admin
-    if current_starter.blank?
-      redirect_to root_url, :notice => "You're not authorized to see this page"
+    if @starter.blank?
+      redirect_to root_url, :notice => "Oops, it looks like you were shooting at the wrong whale!"
       return
     elsif
-      current_starter.admin != true
-      redirect_to root_url, :notice => "You're not authorized to see this page"
+      @starter.admin != true
+      redirect_to root_url, :notice => "Oops, it looks like you were shooting at the wrong whale!"
       return
     end
   end
