@@ -19,6 +19,7 @@ class StartersController < ApplicationController
   # GET /starters/1.json
   def show
     # @starter = current_starter
+    @actual_project = @starter.actual_project
     
     @skill1 = Skill.find_by_id(@starter.skill_id1)
     @skill2 = Skill.find_by_id(@starter.skill_id2)
