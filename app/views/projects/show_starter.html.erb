@@ -1,44 +1,43 @@
-<p>
-  <b>Name:</b>
-  <%= @project.name %>
-</p>
-
-<p>
-  <b>Description:</b>
-  <%= @project.description %>
-</p>
-
-<p>
-  <b>Url:</b>
-  <%= @project.url %>
-</p>
-
-<p>
-  <b>Reward:</b>
-  <%= @project.reward %>
-</p>
-
-<p>
-  <b>Deadline:</b>
-  <%= @project.deadline %>
-</p>
-
-<p>
-  <b>Skills needed:</b> <%= @project.skill_id1 %> <%= @project.skill_id2 %> <%= @project.skill_id3 %>
-</p>
-
+<div class="row">
+  <div class="span12">
+    <span style="text-align:center;"><h2>Project Info</h2></span>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="span12">
+    <table class="table">
+      <tr>
+        <th>Name</th>
+        <th>Client</th>
+        <th>Description</th>
+        <th>URL</th>
+        <th>Reward</th>
+        <th>Deadline</th>
+        <th>Skills</th>
+        <th>Action</th>
+      </tr>
+      <tr>
+        <td><%= @project.name %></td>
+        <td><%= @project_client.first_name %> <%= @project_client.last_name %></td>
+        <td><%= @project.description %></td>
+        <td><%= @project.url %></td>
+        <td><%= @project.reward %></td>
+        <td><%= @project.deadline %></td>
+        <td><%= @project.skill_id1 %> <%= @project.skill_id2 %> <%= @project.skill_id3 %></td>
+        <td><% if @project.actual_starter_id == @starter.id  %>
+  <%= button_to 'Leave Project', reject_project_url(@starter, @project), :method => "put", :class => "btn btn-small btn-primary" %>
+<% end %></td>
+      </tr>
+    </table>
+  </div>
+</div>
 
 <% if @project.actual_starter_id.blank?  %>
 	<%= button_to 'Accept Project', accept_project_url(@starter, @project), :method => "put", :class => "btn btn-large btn-primary" %>
 <% end %>
 
-<% if @project.actual_starter_id == @starter.id  %>
-	<p>
-	  <b>Client:</b>
-	  <%= @project_client.first_name %> <%= @project_client.last_name %>
-	</p>
-	<%= button_to 'Reject Project', reject_project_url(@starter, @project), :method => "put", :class => "btn btn-small btn-primary" %>
-<% end %>
+
 
 
 

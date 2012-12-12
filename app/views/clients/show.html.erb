@@ -24,7 +24,7 @@
 
 <div class="row">
 
-  <div class="span4">
+  <div class="span6">
     <h3>Contact Info</h3>
     <div class="well" style="height: 150px;">    
       <p><%= @client.email %> <i class="icon-envelope"></i></p>
@@ -32,7 +32,7 @@
     </div>
   </div>
 
-  <div class="span4">
+  <div class="span6">
     <h3>Online Presences</h3>
     <div class="well" style="height: 150px;">
 
@@ -42,13 +42,6 @@
     </div>
   </div> 
 
-  <div class="span4">    
-      <h3>Skills</h3>
-      <div class="well" style="height: 150px;"> 
-
-    </div>
-  </div>
-
 </div>
 
 
@@ -57,7 +50,7 @@
 <div class="row">
   <div class="span6">
     <h3>Completed Projects</h3>  
-    <div class="well">
+    <div class="well" style="height: 150px;">
 
       <% if @client.projects.completed.any? %>
     
@@ -78,20 +71,21 @@
 
   <div class="span6">
     <h3>Current Project</h3>
-    <div class="well">
+    <div class="well" style="height: 150px;">
 
-      <% if @client.projects.actual.present? %>
+      <% if @actual_project.present? %>
         <table>
           <tr>
-            <td><%= @project.actual.name %></td>
+            <td><%= @actual_project.name %></td>
+            <td><%= @actual_project.url %></td>
             <td><%= link_to "Show", client_project_url(@client, @actual_project) %></td>
           </tr>
         </table>
       <% else %>
-        <p>You're currently available for projects.</p>
+        <p>You don't have any projects open.</p>
       <% end %>
     </div>
   </div>  
 </div>
-<%= link_to 'Edit', edit_client_path(@client) %> |
+<%= link_to 'Edit', edit_client_path(@client) %>
 

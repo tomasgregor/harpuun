@@ -1,6 +1,17 @@
 <% if @actual_project.present? %>
-	<h4>Your actual project</h4>
-	<table>
+	<h3>Current Project</h3>
+	<table class="table">
+		<tr>
+			<th>Name</th>
+			<th>Description</th>
+			<th>URL</th>
+			<th>Incentive</th>
+			<th>Deadline</th>
+			<th>Skill</th>
+			<th>Skill</th>
+			<th>Skill</th>
+			<th>Action</th>
+		</tr>
 		<tr>
 			<td><%= @actual_project.name %></td>
 			<td><%= @actual_project.description %></td>
@@ -15,8 +26,8 @@
 	</table>
 	
 <% elsif @offered_projects.any? %>
-	<h4>Projects offered to you</h4>
-	<table>
+	<h4>Offered Project</h4>
+	<table class="table">
 		<% @offered_projects.each do |project| %>
 		  <tr>
 		    <td><%= project.name %></td>
@@ -36,21 +47,30 @@
 		<h3>Projects are just about to sail in the sea.</h3>
 <% end %>
 
-<% if @completed_projects.any? %>
-		<h4>Your completed projects</h4>
-		<table>
+		<h3>Completed Project</h3>
+		<table class="table">
+			<tr>
+				<th>Name</th>
+				<th>Description</th>
+				<th>URL</th>
+				<th>Incentive</th>
+				<th>Deadline</th>
+				<th>Skill</th>
+				<th>Skill</th>
+				<th>Skill</th>
+				<th>Action</th>
+			</tr>
 			<% @completed_projects.each do |project| %>
-			  <tr>
-			    <td><%= project.name %></td>
-			    <td><%= project.description %></td>
-			    <td><%= project.url %></td>
-			    <td><%= project.reward %></td>
-			    <td><%= project.deadline %></td>
-			    <td><%= project.skill_id1 %></td>
-			    <td><%= project.skill_id2 %></td>
-			    <td><%= project.skill_id3 %></td>
-				<td><%= link_to "Show", starter_project_url(@starter, project) %></td>
-			  </tr>
-			<% end %>
+		    <tr>
+		        <td><%= project.name %></td>
+		        <td><%= project.description %></td>
+		        <td><%= project.url %></td>
+		        <td><%= project.reward %></td>
+		        <td><%= project.deadline %></td>
+		        <td><%= project.skill_id1 %></td>
+		        <td><%= project.skill_id2 %></td>
+		        <td><%= project.skill_id3 %></td>
+		  	    <td><%= link_to "Show", starter_project_url(@starter, project) %></td>
+		    </tr>
+		    <% end %>
 			</table>
-<% end %>
