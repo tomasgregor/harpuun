@@ -35,7 +35,7 @@
 	        <ul class="nav">
 				
 	            <!-- Top navigation links for logged_in Client -->
-	            <% if client_logged_in?  %>
+	            <% if @client %>
 	              <% if @client.projects.count == 0 %>
 					<li><%= link_to "Add First Project", new_client_project_url(@client) %></li>
 	              <% else %>
@@ -45,7 +45,7 @@
 	            <% end  %>
           
 	            <!-- Top navigation links for logged_in Starter -->
-	            <% if starter_logged_in?  %>
+	            <% if @starter %>
 	              <li><%= link_to "Projects ", starter_projects_url(@starter) %></li>
 	              <li><%= link_to "My Profile ", starter_url(@starter) %></li>
 	            <% end  %>
@@ -55,14 +55,14 @@
 	              <li><%= link_to "Our Team", team_url %></li>
           
 	            <!-- Top navigation Sign In Links -->
-	            <% if !client_logged_in? && !starter_logged_in? %>
+	            <% if !@client && !@starter %>
 	              <li><%= link_to 'Sign In', signin_url %></li>
 	            <% end %>
 				
-					<!-- Sign Out Links -->
-			        <% if client_logged_in? || starter_logged_in? %> 
-			          <li><%= link_to 'Sign out', signout_url %></li>
-			        <% end %>
+				<!-- Sign Out Links -->
+		        <% if @client || @starter %> 
+		          <li><%= link_to 'Sign out', signout_url %></li>
+		        <% end %>
 				
 	        </ul>
 
