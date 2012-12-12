@@ -3,20 +3,6 @@ class ProjectsController < ApplicationController
   before_filter :require_client, :only => [:index, :new, :show, :update, :create, :destroy]
   before_filter :require_starter, :only => [:index_starter, :show_starter, :accept_project, :reject_project]
   
-  def require_client
-    if current_client.nil? || current_client.id != params[:client_id].to_i
-      redirect_to root_url, :notice => "You're not authorized to see this page"
-      return
-    end
-  end
-  
-  def require_starter
-    if current_starter.nil? || current_starter.id != params[:starter_id].to_i
-      redirect_to root_url, :notice => "You're not authorized to see this page"
-      return
-    end
-  end
-  
 # Actions for projects related to Client
   
   def index
@@ -118,7 +104,7 @@ class ProjectsController < ApplicationController
   def show_starter
     @starter = current_starter
     @project = Project.find_by_id(params[:id])
-    @client = @project.client
+    @project_client = @project.client
     
     respond_to do |format|
       format.html # show.html.erb
@@ -145,6 +131,22 @@ class ProjectsController < ApplicationController
       redirect_to starter_projects_url(@starter)
     else
       render 'show_starter_offered'
+    end
+  end
+  
+  private
+  
+  def require_client
+    if current_client.nil? || current_client.id != params[:client_id].to_i
+      redirect_to root_url, :notice => "You're not authorized to see this page"
+      return
+    end
+  end
+  
+  def require_starter
+    if current_starter.nil? || current_starter.id != params[:starter_id].to_i
+      redirect_to root_url, :notice => "You're not authorized to see this page"
+      return
     end
   end
   

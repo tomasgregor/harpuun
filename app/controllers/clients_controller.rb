@@ -5,13 +5,6 @@ class ClientsController < ApplicationController
   before_filter :require_client, :only => [ :show, :edit, :update, :destroy]
   before_filter :require_admin, :only => :index
   before_filter :logged_in_already?, :only => :new
-  
-  def require_client
-    if current_client.nil? || current_client.id != params[:id].to_i
-      redirect_to root_url, :notice => "You're not authorized to see this page"
-      return
-    end
-  end
 
   # GET /clients
   # GET /clients.json
@@ -95,4 +88,14 @@ class ClientsController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  private
+  
+  def require_client
+    if current_client.nil? || current_client.id != params[:id].to_i
+      redirect_to root_url, :notice => "You're not authorized to see this page"
+      return
+    end
+  end
+  
 end
