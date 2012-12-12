@@ -103,11 +103,6 @@
             <% @completed_projects.each do |project| %>
               <tr>
                 <td><%= project.name %></td>
-                <td><%= project.description %></td>
-                <td><%= project.url %></td>
-                <td><%= project.skill_id1 %></td>
-                <td><%= project.skill_id2 %></td>
-                <td><%= project.skill_id3 %></td>
                 <td><%= link_to "Show", starter_project_url(@starter, project) %></td>
               </tr>
             <% end %>
@@ -127,11 +122,7 @@
         <table>
           <tr>
             <td><%= @actual_project.name %></td>
-            <td><%= @actual_project.description %></td>
             <td><%= @actual_project.url %></td>
-            <td><%= @actual_project.skill_id1 %></td>
-            <td><%= @actual_project.skill_id2 %></td>
-            <td><%= @actual_project.skill_id3 %></td>
             <td><%= link_to "Show", starter_project_url(@starter, @actual_project) %></td>
           </tr>
         </table>

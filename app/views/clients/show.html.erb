@@ -1,34 +1,97 @@
 <div class="row">
-  <div class="span12">
-    <p>
-      <b>First name:</b>
-      <%= @client.first_name %>
-    </p>
-  <div class="span12">
+  
+  <div class="span4">
+      <%= image_tag @client.avatar_url(:medium).to_s, :class => 'img-rounded' %>
   </div>
-    <p>
-      <b>Last name:</b>
-      <%= @client.last_name %>
-    </p>
+
+  <div class="span4">
+    <h1><%= @client.first_name %> <%= @client.last_name %></h1>
+
   </div>
-  <div class="span12">
-    <p>
-      <b>Email:</b>
-      <%= @client.email %>
-    </p>
-  <div class="span12">  
-  </div>
-    <p>
-      <b>Company:</b>
-      <%= @client.company %>
-    </p>
-  </div>
-  <div class="span12">
-    <p>
-      <b>Avatar:</b>
-      <%= image_tag @client.avatar_url(:thumb).to_s %>
-    </p>
+
+  <div class="span4">
+    <h3>Profile Completion:</h3>
+    <div class="well">
+
+    </div>
   </div>
 </div>
+
+
+
+
+
+
+<div class="row">
+
+  <div class="span4">
+    <h3>Contact Info</h3>
+    <div class="well" style="height: 150px;">    
+      <p><%= @client.email %> <i class="icon-envelope"></i></p>
+      <p>Skype</p>
+    </div>
+  </div>
+
+  <div class="span4">
+    <h3>Online Presences</h3>
+    <div class="well" style="height: 150px;">
+
+      <p>LinkedIn</p>
+      <p>Facebook</p>
+      <p>Personal Site</p>
+    </div>
+  </div> 
+
+  <div class="span4">    
+      <h3>Skills</h3>
+      <div class="well" style="height: 150px;"> 
+
+    </div>
+  </div>
+
+</div>
+
+
+
+
+<div class="row">
+  <div class="span6">
+    <h3>Completed Projects</h3>  
+    <div class="well">
+
+      <% if @client.projects.completed.any? %>
+    
+          <table>
+            <% @completed_projects.each do |project| %>
+              <tr>
+                <td><%= project.name %></td>
+                <td><%= link_to "Show", client_project_url(@client, project) %></td>
+              </tr>
+            <% end %>
+            </table>
+      <% else %>
+        <p>You haven't completed any projects yet.</p>
+      <% end %>
+
+    </div>    
+  </div>
+
+  <div class="span6">
+    <h3>Current Project</h3>
+    <div class="well">
+
+      <% if @client.projects.actual.present? %>
+        <table>
+          <tr>
+            <td><%= @project.actual.name %></td>
+            <td><%= link_to "Show", client_project_url(@client, @actual_project) %></td>
+          </tr>
+        </table>
+      <% else %>
+        <p>You're currently available for projects.</p>
+      <% end %>
+    </div>
+  </div>  
+</div>
 <%= link_to 'Edit', edit_client_path(@client) %> |
-<%= link_to 'Back', clients_path %>
+
