@@ -60,7 +60,7 @@ class StartersController < ApplicationController
     respond_to do |format|
       if @starter.save
         session[:starter_id] = @starter.id
-        # SignUpMailer.confirm(@starter).deliver
+        SignUpMailer.confirm(@starter).deliver
         format.html { redirect_to @starter, notice: 'Starter was successfully created.' }
         format.json { render json: @starter, status: :created, location: @starter }
       else

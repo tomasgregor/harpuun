@@ -19,10 +19,10 @@ class Starter < ActiveRecord::Base
   has_secure_password
   mount_uploader :avatar, ImageUploader
   
-  # after_create :send_confirm_email
+  after_create :send_confirm_email
   
-  # def send_confirm_email
-  #   SignUpMailer.confirm(self).deliver
-  # end
+  def send_confirm_email
+    SignUpMailer.confirm(self).deliver
+  end
   
 end
