@@ -1,7 +1,7 @@
 <div class="row">
   
   <div class="span8">
-      <%= image_tag @starter.avatar_url(:thumb).to_s, :class => 'img-rounded profile-pic' %>
+      <%= image_tag @starter.avatar_url(:medium).to_s, :class => 'img-rounded' %>
   </div>
 
   <% if @starter.twitter.present? %>

@@ -1,38 +1,56 @@
-<% if @offered_project.present? %>
-	<h3>You're offered a new project</h3>
-	<strong><%= link_to @offered_project.name, starter_offered_project_url(@starter, @offered_project) %></strong>
-<% else  %>
-	<h3>First projects are just about to sail in the sea.</h3>
+<% if @actual_project.present? %>
+	<h4>Your actual project</h4>
+	<table>
+		<tr>
+			<td><%= @actual_project.name %></td>
+			<td><%= @actual_project.description %></td>
+			<td><%= @actual_project.url %></td>
+			<td><%= @actual_project.reward %></td>
+			<td><%= @actual_project.deadline %></td>
+			<td><%= @actual_project.skill_id1 %></td>
+		    <td><%= @actual_project.skill_id2 %></td>
+		    <td><%= @actual_project.skill_id3 %></td>
+			<td><%= link_to "Show", starter_project_url(@starter, @actual_project) %></td>
+		</tr>
+	</table>
+	
+<% elsif @offered_projects.any? %>
+	<h4>Projects offered to you</h4>
+	<table>
+		<% @offered_projects.each do |project| %>
+		  <tr>
+		    <td><%= project.name %></td>
+		    <td><%= project.description %></td>
+		    <td><%= project.url %></td>
+		    <td><%= project.reward %></td>
+		    <td><%= project.deadline %></td>
+		    <td><%= project.skill_id1 %></td>
+		    <td><%= project.skill_id2 %></td>
+		    <td><%= project.skill_id3 %></td>
+			<td><%= link_to "Show", starter_project_url(@starter, project) %></td>
+		  </tr>
+		<% end %>
+		</table>
+		
+<% else %>
+		<h3>Projects are just about to sail in the sea.</h3>
 <% end %>
 
-<!-- Shows list of projects accepted in the past byt the Starter -->
-<% if @projects.any?  %>
-	<h4>Projects you have accepted</h4>
-	<table>
-	  <tr>
-	    <th>Name</th>
-	    <th>Description</th>
-	    <th>Url</th>
-	    <th>Reward</th>
-	    <th>Deadline</th>
-	    <th>Client</th>
-	    <th>Skill id1</th>
-	    <th>Skill id2</th>
-	    <th>Skill id3</th>
-	  </tr>
-
-	<% @projects.each do |project| %>
-	  <tr>
-	    <td><%= project.name %></td>
-	    <td><%= project.description %></td>
-	    <td><%= project.url %></td>
-	    <td><%= project.reward %></td>
-	    <td><%= project.deadline %></td>
-	    <td><%= project.client_id %></td>
-	    <td><%= project.skill_id1 %></td>
-	    <td><%= project.skill_id2 %></td>
-	    <td><%= project.skill_id3 %></td>
-	  </tr>
-	<% end %>
-	</table>
+<% if @completed_projects.any? %>
+		<h4>Your completed projects</h4>
+		<table>
+			<% @completed_projects.each do |project| %>
+			  <tr>
+			    <td><%= project.name %></td>
+			    <td><%= project.description %></td>
+			    <td><%= project.url %></td>
+			    <td><%= project.reward %></td>
+			    <td><%= project.deadline %></td>
+			    <td><%= project.skill_id1 %></td>
+			    <td><%= project.skill_id2 %></td>
+			    <td><%= project.skill_id3 %></td>
+				<td><%= link_to "Show", starter_project_url(@starter, project) %></td>
+			  </tr>
+			<% end %>
+			</table>
 <% end %>

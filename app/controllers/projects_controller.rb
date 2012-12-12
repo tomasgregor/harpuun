@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   
   before_filter :require_client, :only => [:index, :new, :show, :update, :create, :destroy]
+  before_filter :require_starter, :only => [:index_starter, :show_starter, :accept_project, :reject_project]
   
   def require_client
     if current_client.nil? || current_client.id != params[:client_id].to_i
@@ -9,15 +10,21 @@ class ProjectsController < ApplicationController
     end
   end
   
+  def require_starter
+    if current_starter.nil? || current_starter.id != params[:starter_id].to_i
+      redirect_to root_url, :notice => "You're not authorized to see this page"
+      return
+    end
+  end
   
 # Actions for projects related to Client
   
   def index
     @client = current_client
     @projects = @client.projects
-    @actual_projects = @client.projects.where("actual_starter_id IS NOT NULL")
-    @offered_projects = @client.projects.where("actual_starter_id IS NULL and completer_id IS NULL")
-    @completed_projects = @client.projects.where("completer_id IS NOT NULL")
+    @actual_projects = @projects.actual
+    @offered_projects = @projects.offered
+    @completed_projects = @projects.completed
     
     respond_to do |format|
       format.html # index.html.erb
@@ -98,8 +105,9 @@ class ProjectsController < ApplicationController
   
   def index_starter
     @starter = current_starter
-    @offered_project = offered_project
-    @projects = Project.where(:accepted_by => @starter.id)
+    @actual_project = @starter.actual_project
+    @offered_projects = Project.offered - @starter.accepted_projects
+    @completed_projects = @starter.completed_projects    
     
     respond_to do |format|
       format.html # starter.html.erb
@@ -107,10 +115,10 @@ class ProjectsController < ApplicationController
     end
   end
   
-  def show_starter_offered
+  def show_starter
     @starter = current_starter
-    @offered_project = offered_project
-    @client = @offered_project.client
+    @project = Project.find_by_id(params[:id])
+    @client = @project.client
     
     respond_to do |format|
       format.html # show.html.erb
@@ -119,15 +127,20 @@ class ProjectsController < ApplicationController
   end
   
   def accept_project
-    if offered_project.update_attributes(offered_to: nil, accepted_by: current_starter.id)
-      redirect_to starter_projects_url(@starter)
+    @starter = current_starter
+    @project = Project.find_by_id(params[:id])
+    if @project.update_attributes(actual_starter_id: current_starter.id)
+      Offer.create(:project_id => @project.id, :accepted_by => current_starter.id)
+      redirect_to starter_project_url(@starter, @project)
     else
-      render 'show_starter_offered'
+      render 'show_starter'
     end
   end
   
   def reject_project
-    if offered_project.update_attributes(offered_to: nil)
+    @starter = current_starter
+    @project = Project.find_by_id(params[:id])
+    if @project.update_attributes(actual_starter_id: nil)
       redirect_to starter_projects_url(@starter)
     else
       render 'show_starter_offered'
