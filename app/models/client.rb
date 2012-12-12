@@ -16,4 +16,10 @@ class Client < ActiveRecord::Base
   has_secure_password
   mount_uploader :avatar, ImageUploader
   
+  after_create :client_confirm_email
+  
+  def client_confirm_email
+    SignUpMailer.client_confirm(self).deliver
+  end
+  
 end

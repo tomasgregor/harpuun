@@ -9,8 +9,14 @@ class SignUpMailer < ActionMailer::Base
   #
   #   en.sign_up_mailer.confirm.subject
   #
-  def confirm(recipient)
+  def starter_confirm(recipient)
     @starter = recipient
+    @url = "http://www.harpuun.com"
+    mail(:to => "#{recipient.email}", :subject => "Thanks for Signing Up!" )
+  end  
+  
+  def client_confirm(recipient)
+    @client = recipient
     @url = "http://www.harpuun.com"
     mail(:to => "#{recipient.email}", :subject => "Thanks for Signing Up!" )
   end
