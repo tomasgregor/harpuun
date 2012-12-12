@@ -22,3 +22,6 @@
 
 # Ignore Heroku Environment
 /config/initializers/aws_credentials.rb
+
+# Ignore Send Grid Credentials
+/config/environment.rb
