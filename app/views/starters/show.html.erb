@@ -1,76 +1,150 @@
 <div class="row">
   
-  <div class="span8">
+  <div class="span4">
       <%= image_tag @starter.avatar_url(:medium).to_s, :class => 'img-rounded' %>
   </div>
 
-  <% if @starter.twitter.present? %>
-  <div class="span4 progress progress-success progress-striped active">
-    <div class="bar" style="width: 100%;">Profile Complete!</div>
-  </div>
-  <% else %>
-  <div class="span4 progress progress-striped active">
-    <div class="bar" style="width: 65%;">65% Complete</div>
-  </div>
   <div class="span4">
-    <ul>Achieve 100% Profile Completion by:
-      <li><%= link_to 'Linking your Twitter account', edit_starter_path(@starter)%></li>
-    </ul>
-  </div>
-  <% end %>
-
-</div>
-<div class="row">
-
-  <div class="span4">
-    <% if @starter.admin == true %>
-        ADMIN
-    <% end %>
     <h1><%= @starter.first_name %> <%= @starter.last_name %></h1>
+    <p><% if @starter.admin == true %>
+        ADMIN
+    <% end %></p>
+    <p><%= @starter.quarter %> <%= @starter.year %> Starter</p>
+    <p><%= @starter.location %></p>
+  </div>
+
+  <div class="span4">
+    <h3>Profile Completion:</h3>
+    <div class="well">
+      <% if @starter.twitter.present? && @starter.skill_id1.present? %>
+        <div class="progress progress-success progress-striped active">
+          <div class="bar" style="width: 100%;">100%</div>
+        </div>
+      <% elsif @starter.twitter.present? || @starter.skill_id1.present? %>
+        <div class="progress progress-striped active">
+          <div class="bar" style="width: 65%;">65%</div>
+        </div>      
+      <% else %>
+        <div class="progress progress-striped active">
+          <div class="bar" style="width: 35%;">35%</div>
+        </div>
+        <div>
+          <ul>Achieve 100% by:
+            <li><%= link_to 'Linking your Twitter account', edit_starter_path(@starter) %></li>
+            <li><%= link_to 'Adding some skills', edit_starter_path(@starter) %></li>          
+          </ul>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
 
+
+
+
+
+
 <div class="row">
-  <div class="span12">
-    <h4>Contact Info</h4>    
-    <%= @starter.email %> <i class="icon-envelope"></i>
+
+  <div class="span4">
+    <h3>Contact Info</h3>
+    <div class="well" style="height: 150px;">    
+      <p><% if @starter.admin == true %>
+          ADMIN
+      <% end %></p>
+      <p>+<%= @starter.phone %></p>
+      <p><%= @starter.email %> <i class="icon-envelope"></i></p>
+      <p>Skype</p>
+    </div>
   </div>
-</div>  
 
+  <div class="span4">
+    <h3>Online Presences</h3>
+    <div class="well" style="height: 150px;">
+      <% if @starter.twitter.present? %>
+        <%= link_to "@#{@starter.twitter}", "http://www.twitter.com/#{@starter.twitter}" %>
+      <% else %>
+        <%= link_to 'Link your Twitter account', edit_starter_path(@starter)%>
+      <% end %>
+      <p>LinkedIn</p>
+      <p>Facebook</p>
+      <p>Personal Site</p>
+    </div>
+  </div> 
 
-<div class="row">
-  <div class="span12">
-    <h4>Social Media Profiles</h4>
-    <% if @starter.twitter.present? %>
-      <%= link_to "@#{@starter.twitter}", "http://www.twitter.com/#{@starter.twitter}" %>
-    <% else %>
-      
+  <div class="span4">    
+      <h3>Skills</h3>
+      <div class="well" style="height: 150px;"> 
+    <% if @skill1.present? %>
+      <p><%= @skill1.name %></p>
     <% end %>
-  </div> 
+    <% if @skill2.present? %>
+      <p><%= @skill2.name %></p>
+    <% end %>
+    <% if @skill3.present? %>
+      <p><%= @skill3.name %></p>
+    <% end %>
+    </div>
+  </div>
+
 </div>
+
+
+
 
 <div class="row">
-  <div class="span12">
-    <h4>Cohort</h4>
-      <p><%= @starter.quarter %> <%= @starter.year %></p>
-  </div>   
+  <div class="span6">
+    <h3>Completed Projects</h3>  
+    <div class="well">
+
+      <% if @starter.completed_projects.any? %>
+    
+          <table>
+            <% @completed_projects.each do |project| %>
+              <tr>
+                <td><%= project.name %></td>
+                <td><%= project.description %></td>
+                <td><%= project.url %></td>
+                <td><%= project.skill_id1 %></td>
+                <td><%= project.skill_id2 %></td>
+                <td><%= project.skill_id3 %></td>
+                <td><%= link_to "Show", starter_project_url(@starter, project) %></td>
+              </tr>
+            <% end %>
+            </table>
+      <% else %>
+        <p>You haven't completed any projects yet.</p>
+      <% end %>
+
+    </div>    
+  </div>
+
+  <div class="span6">
+    <h3>Current Project</h3>
+    <div class="well">
+
+      <% if @starter.actual_project.present? %>
+        <table>
+          <tr>
+            <td><%= @actual_project.name %></td>
+            <td><%= @actual_project.description %></td>
+            <td><%= @actual_project.url %></td>
+            <td><%= @actual_project.skill_id1 %></td>
+            <td><%= @actual_project.skill_id2 %></td>
+            <td><%= @actual_project.skill_id3 %></td>
+            <td><%= link_to "Show", starter_project_url(@starter, @actual_project) %></td>
+          </tr>
+        </table>
+      <% else %>
+        <p>You're currently available for projects.</p>
+      <% end %>
+    </div>
+  </div>  
 </div>
 
-<div class="row">
-  <div class="span12">
-    <h4>Skills</h4> 
-  <% if @skill1.present? %>
-    <p><%= @skill1.name %></p>
-  <% end %>
-  <% if @skill2.present? %>
-    <p><%= @skill2.name %></p>
-  <% end %>
-  <% if @skill3.present? %>
-    <p><%= @skill3.name %></p>
-  <% end %>
 
-  </div> 
-</div>
+
+
 
 <div class="row">
   <div class="span12">

@@ -44,15 +44,25 @@
 
   <div class="form-inline">
 	<p class="form_info_text">Select skills based on what you know best or what jobs you want to get. You can select just 1.</p>
-	<%= f.label :skillset, "Your skills", :class => "control-label" %>
+	<%= f.label :skillset, "Your skills", :class => "control-label", :id => 'skills' %>
 	<%= f.collection_select :skill_id1, Skill.all, :id, :name, :prompt => "first ...", :class => "input-small" %>
 	<%= f.collection_select :skill_id2, Skill.all, :id, :name, :prompt => "second ...", :class => "input-small" %>    
 	<%= f.collection_select :skill_id3, Skill.all, :id, :name, :prompt => "third ...", :class => "input-small" %>
   </div>
 
   <div class="control-group">
-    <%= f.label :twitter, :class => "control-label", :for =>"inputTwitter" %>
+    <%= f.label :twitter, :class => "control-label", :for =>"inputTwitter", :id => 'twitter' %>
     <%= f.text_field :twitter, :class => "controls", :id => "inputTwitter" %>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :location, :class => "control-label", :for =>"inputLocation" %>
+    <%= f.text_field :location, :class => "controls", :id => "inputLocation" %>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :phone, :class => "control-label", :for =>"inputPhone", :id => 'phone' %>
+    <%= f.text_field :phone, :class => "controls", :id => "inputPhone" %>
   </div>
 
   <div class="control-group">
