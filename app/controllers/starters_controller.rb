@@ -4,6 +4,7 @@ class StartersController < ApplicationController
   
   before_filter :require_starter, :only => [ :show, :edit, :update, :destroy ]
   before_filter :require_admin, :only => :index
+  before_filter :logged_in_already?, :only => :new
   
   def require_starter
     if current_starter.nil? || current_starter.id != params[:id].to_i
@@ -11,6 +12,7 @@ class StartersController < ApplicationController
       return
     end   
   end
+  
   
   def index
     @starters = Starter.all
