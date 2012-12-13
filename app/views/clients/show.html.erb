@@ -70,17 +70,19 @@
   </div>
 
   <div class="span6">
-    <h3>Current Project</h3>
+    <h3>Current Projects</h3>
     <div class="well" style="height: 150px;">
 
-      <% if @actual_project.present? %>
-        <table>
-          <tr>
-            <td><%= @actual_project.name %></td>
-            <td><%= @actual_project.url %></td>
-            <td><%= link_to "Show", client_project_url(@client, @actual_project) %></td>
-          </tr>
-        </table>
+      <% if @client.projects.actual.any? %>
+        
+		<table>
+            <% @client.projects.actual.each do |project| %>
+              <tr>
+                <td><%= project.name %></td>
+                <td><%= link_to "Show", client_project_url(@client, project) %></td>
+              </tr>
+            <% end %>
+          </table>
       <% else %>
         <p>You don't have any projects open.</p>
       <% end %>
