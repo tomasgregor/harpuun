@@ -48,7 +48,7 @@
   <div class="span12">
 	<% if starter_logged_in?  %>
 		<% if project.actual_starter_id.blank?  %>
-			<%= button_to 'Accept Project', accept_project_url(@starter, project), :confirm => 'Are you sure?', :method => "put", :class => "btn btn-large btn-primary" %>
+			<%= button_to 'Accept Project', accept_project_url(@starter, project), :method => "put", :class => "btn btn-large btn-primary" %>
 		<% end %>
 
 		<% if project.actual_starter_id == @starter.id  %>
