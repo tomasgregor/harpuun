@@ -1,5 +1,5 @@
 <% if @actual_project.present? %>
-	<h3>Current Project</h3>
+	<h3>Accepted Project</h3>
 	<table class="table">
 		<tr>
 			<th>Name</th>
@@ -7,24 +7,32 @@
 			<th>URL</th>
 			<th>Incentive</th>
 			<th>Deadline</th>
-			<th>Skill</th>
-			<th>Skill</th>
-			<th>Skill</th>
-			<th>Action</th>
+			<th>Skills</th>
 		</tr>
 		<tr>
-			<td><%= @actual_project.name %></td>
-			<td><%= truncate(@actual_project.description, 10) + "..."   %></td>
-			<td><%= @actual_project.url %></td>
-			<td><%= @actual_project.reward %></td>
+			<td><%= link_to @actual_project.name, starter_project_url(@starter, @actual_project) %></td>
+			<td><%= truncate(@actual_project.description, :length => 50) %></td>
+			<td>
+				<% if @actual_project.url %>
+					<%= link_to @actual_project.url, "http://#{@actual_project.url}", :target => "blank" %>
+				<% end  %>
+			
+			</td>
+			<td><%= truncate(@actual_project.reward, :length => 50) %></td>
 			<td><%= @actual_project.deadline %></td>
-			<td><%= @actual_project.skill_id1 %></td>
-		    <td><%= @actual_project.skill_id2 %></td>
-		    <td><%= @actual_project.skill_id3 %></td>
-			<td><%= link_to "Show", starter_project_url(@starter, @actual_project) %></td>
+			<td>
+				<% if @actual_project.skill_id1 %>
+					<%= skill_name(@actual_project.skill_id1) %><br />
+				<% end  %>
+				<% if @actual_project.skill_id2 %>
+					<%= skill_name(@actual_project.skill_id2) %><br />
+				<% end  %>
+				<% if @actual_project.skill_id3 %>
+					<%= skill_name(@actual_project.skill_id3) %><br />
+				<% end  %>
+			</td>
 		</tr>
 	</table>
-	
 <% elsif @offered_projects.any? %>
 	<h4>Offered Projects</h4>
 	<table class="table">	
@@ -59,12 +67,11 @@
 		  </tr>
 		<% end %>
 		</table>
-		
 <% else %>
 		<h3>Projects are just about to sail in the sea.</h3>
 <% end %>
-
-		<h3>Completed Project</h3>
+<% if @completed_projects.any? %>
+	<h4>Completed Projects</h4>
 		<table class="table">
 			<tr>
 				<th>Name</th>
@@ -72,9 +79,7 @@
 				<th>URL</th>
 				<th>Incentive</th>
 				<th>Deadline</th>
-				<th>Skill</th>
-				<th>Skill</th>
-				<th>Skill</th>
+				<th>Skills</th>
 				<th>Action</th>
 			</tr>
 			<% @completed_projects.each do |project| %>
@@ -84,10 +89,18 @@
 		        <td><%= project.url %></td>
 		        <td><%= project.reward %></td>
 		        <td><%= project.deadline %></td>
-		        <td><%= project.skill_id1 %></td>
-		        <td><%= project.skill_id2 %></td>
-		        <td><%= project.skill_id3 %></td>
+				<td>
+					<% if project.skill_id1 %>
+						<%= skill_name(project.skill_id1) %><br />
+					<% end  %>
+					<% if project.skill_id2 %>
+						<%= skill_name(project.skill_id2) %><br />
+					<% end  %>
+					<% if project.skill_id3 %>
+						<%= skill_name(project.skill_id3) %><br />
+					<% end  %>
 		  	    <td><%= link_to "Show", starter_project_url(@starter, project) %></td>
 		    </tr>
 		    <% end %>
 			</table>
+<% end %>
