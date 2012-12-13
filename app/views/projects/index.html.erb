@@ -1,52 +1,16 @@
 <% if @actual_projects.any?  %>
-	<h3>Projects accepted by starters</h3>
-
-	<table>
-	<% @actual_projects.each do |project| %>
-	  <tr>
-	    <td><%= project.name %></td>
-	    <td><%= project.description %></td>
-	    <td><%= link_to 'Show', client_project_path(@client, project) %></td>
-	    <td><%= link_to 'Edit', edit_client_project_path(@client, project) %></td>
-	  </tr>
-	<% end %>
-	</table>
-	<br />
+	<%= render '_project_table', :title => "Accepted Projects", :projects => @actual_projects %>
 <% end  %>
 
 
 <% if @offered_projects.any?  %>
-	<h3>Projects offered to starters</h3>
-
-	<table>
-	<% @offered_projects.each do |project| %>
-	  <tr>
-	    <td><%= project.name %></td>
-	    <td><%= project.description %></td>
-	    <td><%= link_to 'Show', client_project_path(@client, project) %></td>
-	    <td><%= link_to 'Edit', edit_client_project_path(@client, project) %></td>
-	  </tr>
-	<% end %>
-	</table>
-	<br />
+	<%= render '_project_table', :title => "Offered Projects", :projects => @offered_projects %>
 <% end  %>
 
 <%= button_to 'Add New Project', new_client_project_url(@client), :method => "get", :class => "btn btn-large btn-primary" %>
 <br />
 
 <% if @completed_projects.any?  %>
-	<h3>Completed projects</h3>
-
-	<table>
-	<% @completed_projects.each do |project| %>
-	  <tr>
-	    <td><%= project.name %></td>
-	    <td><%= project.description %></td>
-	    <td><%= link_to 'Show', client_project_path(@client, project) %></td>
-	    <td><%= link_to 'Edit', edit_client_project_path(@client, project) %></td>
-	  </tr>
-	<% end %>
-	</table>
-	<br />
+	<%= render '_project_table', :title => "Completed Projects", :projects => @completed_projects %>
 <% end  %>
 

@@ -1,75 +1,14 @@
-<% if @actual_project.present? %>
-	<h3>Accepted project</h3>
+<% if @actual_project %>
+	<h4>Accepted Project</h4>
 	<%= render 'project', :project => @actual_project %>
 
 <% elsif @offered_projects.any? %>
-	<h4>Offered Projects</h4>
-	<table class="table">	
-			<tr>
-				<th>Name</th>
-				<th>Description</th>
-				<th>URL</th>
-				<th>Incentive</th>
-				<th>Deadline</th>
-				<th>Skills</th>
-				<th>Action</th>
-			</tr>
-		<% @offered_projects.each do |project| %>
-		  <tr>
-		    <td><%= project.name %></td>
-		    <td><%= truncate(project.description, :length => 50)%></td></td>
-		    <td><%= project.url %></td>
-		    <td><%= truncate(project.reward, :length => 50) %></td>
-		    <td><%= truncate(project.deadline, :length => 30) %></td>
-		    <td>
-				<% if project.skill_id1 %>
-					<%= skill_name(project.skill_id1) %><br />
-				<% end  %>
-				<% if project.skill_id2 %>
-					<%= skill_name(project.skill_id2) %><br />
-				<% end  %>
-				<% if project.skill_id3 %>
-					<%= skill_name(project.skill_id3) %><br />
-				<% end  %>
-			</td>
-			<td><%= link_to "Show", starter_project_url(@starter, project) %></td>
-		  </tr>
-		<% end %>
-		</table>
+	<%= render '_project_table', :title => "Offered Projects", :projects => @offered_projects %>
+
 <% else %>
 		<h3>Projects are just about to sail in the sea.</h3>
 <% end %>
+
 <% if @completed_projects.any? %>
-	<h4>Completed Projects</h4>
-		<table class="table">
-			<tr>
-				<th>Name</th>
-				<th>Description</th>
-				<th>URL</th>
-				<th>Incentive</th>
-				<th>Deadline</th>
-				<th>Skills</th>
-				<th>Action</th>
-			</tr>
-			<% @completed_projects.each do |project| %>
-		    <tr>
-		        <td><%= project.name %></td>
-		        <td><%= project.description %></td>
-		        <td><%= project.url %></td>
-		        <td><%= project.reward %></td>
-		        <td><%= project.deadline %></td>
-				<td>
-					<% if project.skill_id1 %>
-						<%= skill_name(project.skill_id1) %><br />
-					<% end  %>
-					<% if project.skill_id2 %>
-						<%= skill_name(project.skill_id2) %><br />
-					<% end  %>
-					<% if project.skill_id3 %>
-						<%= skill_name(project.skill_id3) %><br />
-					<% end  %>
-		  	    <td><%= link_to "Show", starter_project_url(@starter, project) %></td>
-		    </tr>
-		    <% end %>
-			</table>
+	<%= render '_project_table', :title => "Completed Projects", :projects => @completed_projects %>
 <% end %>

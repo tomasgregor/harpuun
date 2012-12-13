@@ -1,0 +1,38 @@
+<h4><%= title %></h4>
+<table class="table">	
+		<tr>
+			<th>Name</th>
+			<th>Description</th>
+			<th>URL</th>
+			<th>Incentive</th>
+			<th>Deadline</th>
+			<th>Skills</th>
+		</tr>
+	<% projects.each do |project| %>
+	  <tr>
+	    <td>
+			<% if client_logged_in?  %>
+				<%= link_to project.name, client_project_url(@client, project) %>
+			<% end  %>
+			<% if starter_logged_in?  %>
+				<%= link_to project.name, starter_project_url(@starter, project) %>
+			<% end  %>
+		</td>
+	    <td><%= truncate(project.description, :length => 50)%></td></td>
+	    <td><%= project.url %></td>
+	    <td><%= truncate(project.reward, :length => 50) %></td>
+	    <td><%= truncate(project.deadline, :length => 30) %></td>
+	    <td>
+			<% if project.skill_id1 %>
+				<%= skill_name(project.skill_id1) %><br />
+			<% end  %>
+			<% if project.skill_id2 %>
+				<%= skill_name(project.skill_id2) %><br />
+			<% end  %>
+			<% if project.skill_id3 %>
+				<%= skill_name(project.skill_id3) %><br />
+			<% end  %>
+		</td>
+	  </tr>
+	<% end %>
+</table>
