@@ -55,7 +55,7 @@
       <% if @client.projects.completed.any? %>
     
           <table>
-            <% @completed_projects.each do |project| %>
+            <% @client.projects.completed.each do |project| %>
               <tr>
                 <td><%= project.name %></td>
                 <td><%= link_to "Show", client_project_url(@client, project) %></td>
