@@ -1,0 +1,52 @@
+<h4><%= project.name %><br /></h4>
+<table class="table">
+	<tr>
+		<th>Description</th>
+		<th>URL</th>
+		<th>Incentive</th>
+		<th>Deadline</th>
+		<th>Skills</th>
+	</tr>
+	<tr>
+		<td><%= project.description %></td>
+		<td>
+			<% if project.url %>
+				<%= link_to project.url, "http://#{project.url}", :target => "blank" %>
+			<% end  %>		
+		</td>
+		<td><%= project.reward %></td>
+		<td><%= project.deadline %></td>
+		<td>
+			<% if project.skill_id1 %>
+				<%= skill_name(project.skill_id1) %><br />
+			<% end  %>
+			<% if project.skill_id2 %>
+				<%= skill_name(project.skill_id2) %><br />
+			<% end  %>
+			<% if project.skill_id3 %>
+				<%= skill_name(project.skill_id3) %><br />
+			<% end  %>
+		</td>
+	</tr>
+</table>
+
+<% if starter_logged_in?  %>
+	<% if project.actual_starter_id.blank?  %>
+		<%= button_to 'Accept Project', accept_project_url(@starter, project), :confirm => 'Are you sure?', :method => "put", :class => "btn btn-large btn-primary" %>
+	<% end %>
+
+	<% if project.actual_starter_id == @starter.id  %>
+		<%= button_to 'Leave Project', reject_project_url(@starter, project), :confirm => "Are you sure? Once you leave the project it won\'t be offered to you anymore!", :method => "put", :class => "btn btn-small btn-primary" %>
+	<% end %>
+<% end %>
+
+<% if client_logged_in?  %>
+	<% if project.actual_starter  %>
+		<p>
+		  <b>Starter:</b>
+		  <%= project.actual_starter.first_name %> <%= project.actual_starter.last_name %>
+		</p>
+		<%= button_to 'Reject Starter', reject_starter_url(@client, project), :method => "put", :class => "btn btn-small btn-primary" %>
+	<% end %>
+<% end %>
+

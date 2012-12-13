@@ -1,38 +1,7 @@
 <% if @actual_project.present? %>
-	<h3>Accepted Project</h3>
-	<table class="table">
-		<tr>
-			<th>Name</th>
-			<th>Description</th>
-			<th>URL</th>
-			<th>Incentive</th>
-			<th>Deadline</th>
-			<th>Skills</th>
-		</tr>
-		<tr>
-			<td><%= link_to @actual_project.name, starter_project_url(@starter, @actual_project) %></td>
-			<td><%= truncate(@actual_project.description, :length => 50) %></td>
-			<td>
-				<% if @actual_project.url %>
-					<%= link_to @actual_project.url, "http://#{@actual_project.url}", :target => "blank" %>
-				<% end  %>
-			
-			</td>
-			<td><%= truncate(@actual_project.reward, :length => 50) %></td>
-			<td><%= @actual_project.deadline %></td>
-			<td>
-				<% if @actual_project.skill_id1 %>
-					<%= skill_name(@actual_project.skill_id1) %><br />
-				<% end  %>
-				<% if @actual_project.skill_id2 %>
-					<%= skill_name(@actual_project.skill_id2) %><br />
-				<% end  %>
-				<% if @actual_project.skill_id3 %>
-					<%= skill_name(@actual_project.skill_id3) %><br />
-				<% end  %>
-			</td>
-		</tr>
-	</table>
+	<h3>Accepted project</h3>
+	<%= render 'project', :project => @actual_project %>
+
 <% elsif @offered_projects.any? %>
 	<h4>Offered Projects</h4>
 	<table class="table">	
