@@ -127,11 +127,16 @@ class ProjectsController < ApplicationController
   def accept_project
     @starter = current_starter
     @project = Project.find_by_id(params[:id])
-    if @project.update_attributes(actual_starter_id: current_starter.id)
-      Offer.create(:project_id => @project.id, :accepted_by => current_starter.id)
-      redirect_to starter_project_url(@starter, @project)
+    
+    if @project.actual_starter_id == nil
+      if @project.update_attributes(actual_starter_id: current_starter.id)
+        Offer.create(:project_id => @project.id, :accepted_by => current_starter.id)
+        redirect_to starter_project_url(@starter, @project)
+      else
+        render 'show_starter'
+      end
     else
-      render 'show_starter'
+      redirect_to starter_projects_url(@starter), notice: 'Project has been already accepted by other Starter.'
     end
   end
   
