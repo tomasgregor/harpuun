@@ -8,7 +8,9 @@ end
 
 class EmailUniquenessValidator < ActiveModel::EachValidator
   def validate_each(object, attribute, value)
-    if Client.where("LOWER(email) = ?", value.downcase).any? || Starter.where("LOWER(email) = ?", value.downcase).any?
+    starters = Starter.where("LOWER(email) = ?", value.downcase) - [object]
+    clients = Client.where("LOWER(email) = ?", value.downcase) - [object]
+    if clients.any? || starters.any?
       object.errors[attribute] << (options[:message] || "has already been taken")
     end
   end
