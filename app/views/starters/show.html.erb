@@ -49,12 +49,14 @@
   <div class="span4">
     <h3>Contact Info</h3>
     <div class="well" style="height: 150px;">    
-      <p><% if @starter.admin == true %>
-          ADMIN
-      <% end %></p>
-      <p>+<%= @starter.phone %></p>
-      <p><%= @starter.email %> <i class="icon-envelope"></i></p>
-      <p>Skype</p>
+      <p><i class="icon-envelope"> </i> <%= mail_to @starter.email, @starter.email %> </p>
+      <% if @starter.phone.present? %>
+		<p>Phone: +<%= @starter.phone %></p>
+	  <% end  %>
+      <% if @starter.location.present? %>
+		<p>Location: <%= @starter.location %></p>
+	  <% end  %>
+      <!-- <p>Skype</p> -->
     </div>
   </div>
 
@@ -62,13 +64,13 @@
     <h3>Online Presences</h3>
     <div class="well" style="height: 150px;">
       <% if @starter.twitter.present? %>
-        <%= link_to "@#{@starter.twitter}", "http://www.twitter.com/#{@starter.twitter}" %>
+        Twitter: <%= link_to "@#{@starter.twitter}", "http://www.twitter.com/#{@starter.twitter}" %>
       <% else %>
         <%= link_to 'Link your Twitter account', edit_starter_path(@starter)%>
       <% end %>
-      <p>LinkedIn</p>
-      <p>Facebook</p>
-      <p>Personal Site</p>
+      <!-- <p>LinkedIn</p>
+       <p>Facebook</p>
+       <p>Personal Site</p> -->
     </div>
   </div> 
 

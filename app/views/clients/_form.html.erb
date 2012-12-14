@@ -33,12 +33,23 @@
     <%= f.password_field :password_confirmation, :class => "controls", :id => "inputPasswordConfirmation"  %>
   </div>
   <br />
-  <p>Fill additional info and end we will provide even better service for you:</p>
+  <p>Fill additional info and we'll provide even better service to you:</p>
 
   <div class="control-group">
     <%= f.label :company, :class => "control-label", :for =>"inputCompany"  %>
     <%= f.text_field :company, :class => "controls", :id => "inputCompany" %>
   </div>
+
+  <div class="control-group">
+    <%= f.label :phone, :class => "control-label", :for =>"inputPhone", :id => 'phone' %>
+    <%= f.text_field :phone, :placeholder => "1-234-567-8901", :class => "controls", :id => "inputPhone" %>
+  </div>
+
+  <div class="control-group">
+    <%= f.label :location, :class => "control-label", :for =>"inputLocation" %>
+    <%= f.text_field :location, :placeholder => "city, state, country", :class => "controls", :id => "inputLocation" %>
+  </div>
+
   <div class="control-group">
     <%= f.label :avatar, "Your photo", :class => "control-label", :for =>"inputAvatarFile" %>
     <%= f.file_field :avatar, :class => "controls", :id => "inputAvatarFile" %>

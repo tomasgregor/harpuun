@@ -6,7 +6,8 @@
 
   <div class="span4">
     <h1><%= @client.first_name %> <%= @client.last_name %></h1>
-
+    <h4><%= @client.company %></h4>
+    <p><%= @client.location %></p>
   </div>
 
   <div class="span4">
@@ -26,19 +27,24 @@
 
   <div class="span6">
     <h3>Contact Info</h3>
-    <div class="well" style="height: 150px;">    
-      <p><%= @client.email %> <i class="icon-envelope"></i></p>
-      <p>Skype</p>
+    <div class="well" style="height: 150px;">
+      <p><i class="icon-envelope"> </i> <%= mail_to @client.email, @client.email %> </p>
+      <% if @client.phone.present? %>
+		<p>Phone: +<%= @client.phone %></p>
+	  <% end  %>
+      <% if @client.location.present? %>
+		<p>Location: <%= @client.location %></p>
+	  <% end  %>
     </div>
   </div>
 
   <div class="span6">
     <h3>Online Presences</h3>
     <div class="well" style="height: 150px;">
-
-      <p>LinkedIn</p>
+	  <p>coming soon...</p>
+      <!-- <p>LinkedIn</p>
       <p>Facebook</p>
-      <p>Personal Site</p>
+      <p>Personal Site</p> -->
     </div>
   </div> 
 

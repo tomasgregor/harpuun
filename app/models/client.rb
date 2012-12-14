@@ -1,5 +1,5 @@
 class Client < ActiveRecord::Base
-  attr_accessible :avatar, :remote_avatar_url, :company, :email, :first_name, :last_name, :password, :password_confirmation
+  attr_accessible :avatar, :remote_avatar_url, :company, :email, :first_name, :last_name, :password, :password_confirmation, :phone, :location
   
   has_many :projects
 
