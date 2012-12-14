@@ -128,7 +128,6 @@ class ProjectsController < ApplicationController
     @starter = current_starter
     @project = Project.find_by_id(params[:id])
     if @project.update_attributes(actual_starter_id: current_starter.id)
-      
       Offer.create(:project_id => @project.id, :accepted_by => current_starter.id)
       redirect_to starter_project_url(@starter, @project)
     else
@@ -139,6 +138,7 @@ class ProjectsController < ApplicationController
   def reject_project
     @starter = current_starter
     @project = Project.find_by_id(params[:id])
+    
     if @project.update_attributes(actual_starter_id: nil)
       redirect_to starter_projects_url(@starter)
     else
