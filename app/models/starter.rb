@@ -10,8 +10,9 @@ class Starter < ActiveRecord::Base
   validates :last_name, :length => { :minimum => 2 }
 
   validates :email,
-            :uniqueness => true,
+            :email_uniqueness => true,
             :email_format => true
+
   
   # Validation below makes app require password on profile update. We can delete it or figure out how to do it some other way
   # validates :password, :length => { :in => 6..20 }
