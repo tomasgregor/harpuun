@@ -23,7 +23,7 @@
   </div>
   <div class="control-group">
     <%= f.label :email, :class => "control-label", :for =>"inputEmail" %>
-    <%= f.text_field :email, :class => "controls", :id => "inputEmail"  %>
+    <%= f.text_field :email, :placeholder => "@", :class => "controls", :id => "inputEmail"  %>
   </div>
   <div class="control-group">
     <%= f.label :password, :class => "control-label", :for =>"inputPassword" %>
@@ -57,12 +57,12 @@
 
   <div class="control-group">
     <%= f.label :location, :class => "control-label", :for =>"inputLocation" %>
-    <%= f.text_field :location, :class => "controls", :id => "inputLocation" %>
+    <%= f.text_field :location, :placeholder => "city, state, country", :class => "controls", :id => "inputLocation" %>
   </div>
 
   <div class="control-group">
     <%= f.label :phone, :class => "control-label", :for =>"inputPhone", :id => 'phone' %>
-    <%= f.text_field :phone, :class => "controls", :id => "inputPhone" %>
+    <%= f.text_field :phone, :placeholder => "1-234-567-8901", :class => "controls", :id => "inputPhone" %>
   </div>
 
   <div class="control-group">
