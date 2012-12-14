@@ -19,5 +19,11 @@ class SignUpMailer < ActionMailer::Base
     @client = recipient
     @url = "http://www.harpuun.com"
     mail(:to => "#{recipient.email}", :subject => "Thanks for Signing Up!" )
+  end  
+  
+  def project_accepted(offer)
+    @client = offer.project.client
+    @url = "http://www.harpuun.com"
+    mail(:to => "#{offer.project.client.email}", :subject => "Your project has been accepted!" )
   end
 end

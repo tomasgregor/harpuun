@@ -3,5 +3,11 @@ class Offer < ActiveRecord::Base
   
   belongs_to :project
   belongs_to :starter, :foreign_key => "accepted_by"
+    
+  after_create :project_accepted_email
+  
+  def project_accepted_email
+    SignUpMailer.project_accepted(self).deliver
+  end
   
 end
